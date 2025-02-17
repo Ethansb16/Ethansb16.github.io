@@ -46,6 +46,24 @@
             color: white;
             padding: 2rem 0;
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-logo {
+            position: absolute;
+            bottom: 8px;
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-logo.left {
+            left: 8px;
+        }
+
+        .header-logo.right {
+            right: 8px;
         }
 
         .profile {
@@ -147,10 +165,11 @@
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains exactly the same -->
     <header>
         <div class="container">
             <img src="ASI.png" alt="ASI Logo" class="header-logo left">
-            <img src="CalPoly.jpg" alt="Cal Poly Logo" class="header-logo right">
+            <img src="calpoly.jpg" alt="Cal Poly Logo" class="header-logo right">
             <div class="profile">
                 <img src="profilePicture.jpg" alt="Ethan Bernhardt">
                 <h1>Ethan Bernhardt</h1>
