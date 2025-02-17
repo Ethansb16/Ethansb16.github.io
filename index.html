@@ -10,6 +10,7 @@
             --secondary-color: #3498db;
             --text-color: #333;
             --background-color: #f5f6fa;
+            --hover-color: #e74c3c;  /* Added hover color */
         }
 
         * {
@@ -23,6 +24,15 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+        }
+
+        /* Add link hover styles */
+        a {
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color) !important;
         }
 
         .container {
@@ -107,6 +117,11 @@
             gap: 0.5rem;
         }
 
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -127,6 +142,7 @@
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains exactly the same -->
     <header>
         <div class="container">
             <div class="profile">
