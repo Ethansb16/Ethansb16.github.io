@@ -1,9 +1,9 @@
 // Skills Data
 const skills = [
-    { name: "Python", level: 75 },
+    { name: "Python", level: 80 },
     { name: "Java", level: 65 },
     { name: "SQL", level: 80 },
-    { name: "C", level: 55 },
+    { name: "C", level: 65 },
     { name: "React", level: 60 },
     { name: "TypeScript", level: 60 },
     { name: "Prisma", level: 85 },
