@@ -304,6 +304,43 @@ body {
         width: 120px;
         height: 120px;
     }
+    .sub-projects {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.sub-project {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.sub-project h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.sub-project p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.sub-project .tech-tags {
+    margin-top: 0.5rem;
+}
+
+.sub-project .tech-tag {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+}
+
+[data-theme="dark"] .sub-project {
+    background: rgba(255, 255, 255, 0.05);
+}
 
     .nav-container {
         padding: 0 1rem;
