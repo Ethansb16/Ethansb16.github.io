@@ -16,7 +16,7 @@
                 <a href="index.html">Home</a>
                 <a href="projects.html">Projects</a>
                 <a href="experience.html">Experience</a>
-                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
             </div>
             <button class="theme-toggle" aria-label="Toggle dark mode">
                 <i class="fas fa-moon"></i>
@@ -26,40 +26,18 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Professional Experience</h1>
-        <p>My journey in technology and computer science</p>
+        <h1>Work Experience</h1>
+        <p>My Professional Journey</p>
     </section>
 
-    <!-- Main Content -->
+    <!-- Experience Content -->
     <div class="container">
-        <div class="experience-timeline">
-            <!-- Experience entries will be populated by JavaScript -->
+        <div class="experience-grid">
+            <!-- Experience cards will be populated by JavaScript -->
         </div>
     </div>
 
     <script src="js/theme.js"></script>
-    <script src="js/data.js"></script>
-    <script>
-        // Populate Experience Timeline
-        const experienceTimeline = document.querySelector('.experience-timeline');
-        experiences.forEach(exp => {
-            const expEntry = document.createElement('div');
-            expEntry.className = 'experience-entry';
-            expEntry.innerHTML = `
-                <div class="experience-header">
-                    <h3>${exp.title}</h3>
-                    <span class="experience-date">${exp.period}</span>
-                </div>
-                <h4>${exp.company}</h4>
-                <p>${exp.description}</p>
-                <ul class="experience-highlights">
-                    ${exp.highlights.map(highlight => 
-                        `<li>${highlight}</li>`
-                    ).join('')}
-                </ul>
-            `;
-            experienceTimeline.appendChild(expEntry);
-        });
-    </script>
+    <script src="js/experience.js"></script>
 </body>
 </html>
