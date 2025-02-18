@@ -2,9 +2,15 @@
 const skills = [
     { name: "Python", level: 90 },
     { name: "Java", level: 85 },
-    { name: "SQL", level: 80 },
+    { name: "SQL", level: 85 },
+    { name: "C", level: 80 },
     { name: "React", level: 75 },
-    { name: "TypeScript", level: 70 }
+    { name: "TypeScript", level: 75 },
+    { name: "Prisma", level: 70 },
+    { name: "RISC-V", level: 70 },
+    { name: "Racket", level: 65 },
+    { name: "Linux", level: 80 },
+    { name: "SIEM", level: 75 }
 ];
 
 // Populate Skills
