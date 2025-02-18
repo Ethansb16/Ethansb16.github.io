@@ -346,3 +346,50 @@ body {
         padding: 0 1rem;
     }
 }
+
+
+.project-card.security-collection {
+    grid-column: 1 / -1; /* Makes it span full width */
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.security-collection .sub-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.security-collection .sub-project {
+    background: var(--card-background);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.security-collection .sub-project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.security-collection h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.security-collection .sub-project h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.security-collection .tech-tags {
+    margin-top: 1rem;
+}
+
+[data-theme="dark"] .security-collection .sub-project {
+    border-color: rgba(255,255,255,0.1);
+}
