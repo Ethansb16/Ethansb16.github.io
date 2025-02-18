@@ -1,43 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Ethan Bernhardt</title>
-    <meta name="description" content="Computer Science Projects by Ethan Bernhardt">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="header-nav">
-        <div class="nav-container">
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="experience.html">Experience</a>
-                <a href="skills.html">Skills</a>
-            </div>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
+// Add debug logging
+console.log("Script starting");
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>My Projects</h1>
-        <p>Showcasing My Technical Work</p>
-    </section>
+// Projects Data
+console.log("Projects array:", projects);
 
-    <!-- Projects Content -->
-    <div class="container">
-        <div class="projects-grid">
-            <!-- Project cards will be populated by JavaScript -->
-        </div>
-    </div>
+// Populate Projects
+const projectsGrid = document.querySelector('.projects-grid');
+console.log("Found grid element:", projectsGrid);
 
-    <script src="/js/theme.js"></script>
-    <script src="/js/projects.js"></script>
-</body>
-</html>
+try {
+    projects.forEach(project => {
+        console.log("Processing project:", project.title);
+        const projectCard = document.createElement('div');
+        projectCard.className = project.title === "Security Projects Collection" 
+            ? 'project-card security-collection'
+            : 'project-card';
+        
+        if (project.title === "Security Projects Collection") {
+            console.log("Rendering security collection");
+            // Special layout for security projects
+            projectCard.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="tech-tags">
+                    ${project.technologies.map(tech => 
+                        `<span class="tech-tag">${tech}</span>`
+                    ).join('')}
+                </div>
+                <a href="${project.link}" class="project-link" target="_blank">
+                    <i class="fab fa-github"></i> View Collection on GitHub
+                </a>
+                <div class="sub-projects">
+                    ${project.subProjects.map(subProject => `
+                        <div class="sub-project">
+                            <h4>${subProject.title}</h4>
+                            <p>${subProject.description}</p>
+                            <div class="tech-tags">
+                                ${subProject.technologies.map(tech => 
+                                    `<span class="tech-tag">${tech}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            console.log("Rendering regular project");
+            // Regular project card layout
+            projectCard.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="tech-tags">
+                    ${project.technologies.map(tech => 
+                        `<span class="tech-tag">${tech}</span>`
+                    ).join('')}
+                </div>
+                <a href="${project.link}" class="project-link" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            `;
+        }
+        
+        projectsGrid.appendChild(projectCard);
+    });
+} catch (error) {
+    console.error("Error while processing projects:", error);
+}
