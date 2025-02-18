@@ -19,36 +19,3 @@ themeToggle.addEventListener('click', () => {
     themeIcon.classList.toggle('fa-moon');
     themeIcon.classList.toggle('fa-sun');
 });
-
-# js/data.js
-// Projects Data
-const projects = [
-    {
-        title: "TCP Server Construction",
-        description: "Built a multithreaded TCP server to handle HTTP requests and execute cgi-bin operations",
-        features: [
-            "Multithreaded request handling",
-            "HTTP protocol implementation",
-            "CGI-bin execution support"
-        ],
-        technologies: ["C", "TCP/IP", "Threading"],
-        link: "https://github.com/Ethansb16/TCP-Server-C"
-    },
-    // Add more projects...
-];
-
-// Experience Data
-const experiences = [
-    {
-        title: "Network Security Intern",
-        company: "Example Company",
-        period: "June 2023 - Present",
-        description: "Working on network security implementations and monitoring.",
-        highlights: [
-            "Implemented security protocols",
-            "Monitored network traffic",
-            "Developed security documentation"
-        ]
-    },
-    // Add more experiences...
-];
