@@ -8,63 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        .experience-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr 300px;
-            gap: 2rem;
-            max-width: 1600px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        .side-section {
-            padding: 1rem;
-        }
-
-        .reference-card, .notable-exp-card {
-            background-color: var(--card-background, white);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .reference-card:hover, .notable-exp-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .reference-name {
-            font-weight: bold;
-            color: var(--primary-color, #2196f3);
-            margin-bottom: 0.5rem;
-        }
-
-        .reference-title {
-            font-style: italic;
-            color: var(--secondary-text-color, #666);
-            margin-bottom: 0.5rem;
-        }
-
-        .notable-exp-title {
-            font-weight: bold;
-            color: var(--primary-color, #2196f3);
-            margin-bottom: 0.5rem;
-        }
-
-        .notable-exp-date {
-            font-style: italic;
-            color: var(--secondary-text-color, #666);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color, #333);
-            border-bottom: 2px solid var(--primary-color, #2196f3);
-            padding-bottom: 0.5rem;
-        }
         .timeline {
             position: relative;
             max-width: 1200px;
@@ -131,26 +80,102 @@
             transform: translateY(-5px);
         }
 
-        .date {
+        /* Experience entry specific styles */
+        .experience-entry .date {
             color: var(--primary-color, #2196f3);
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-        .title {
+        .experience-entry .title {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: var(--text-color, #333);
         }
 
-        .company {
+        .experience-entry .company {
             color: var(--secondary-text-color, #666);
             font-style: italic;
             margin-bottom: 0.5rem;
         }
 
-        .description {
+        .experience-entry .description {
+            color: var(--text-color, #555);
+            margin-bottom: 1rem;
+        }
+
+        .experience-entry .highlights {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+            color: var(--text-color, #555);
+        }
+
+        .experience-entry .highlights li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reference entry specific styles */
+        .reference-entry {
+            background-color: var(--card-background, #f8f9fa);
+            border-left: 4px solid var(--primary-color, #2196f3);
+        }
+
+        .reference-tag {
+            color: var(--primary-color, #2196f3);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .reference-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-color, #333);
+        }
+
+        .reference-title {
+            color: var(--secondary-text-color, #666);
+            margin-bottom: 0.3rem;
+        }
+
+        .reference-contact {
+            color: var(--text-color, #555);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Notable entry specific styles */
+        .notable-entry {
+            background-color: var(--card-background, #f8f9fa);
+            border-left: 4px solid var(--accent-color, #ffd700);
+        }
+
+        .notable-tag {
+            color: var(--accent-color, #ffd700);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .notable-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-color, #333);
+        }
+
+        .notable-date {
+            color: var(--secondary-text-color, #666);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .notable-description {
             color: var(--text-color, #555);
         }
 
@@ -165,6 +190,7 @@
             }
         }
 
+        /* Dark mode support */
         [data-theme="dark"] .content {
             background-color: var(--card-background, #2d2d2d);
         }
@@ -173,19 +199,23 @@
             background-color: var(--background-color, #1a1a1a);
         }
 
-        @media screen and (max-width: 1200px) {
-            .experience-layout {
-                grid-template-columns: 1fr;
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
             }
 
-            .side-section {
-                order: 2;
-                max-width: 600px;
-                margin: 0 auto;
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
 
-            .timeline-section {
-                order: 1;
+            .right {
+                left: 0;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
             }
         }
     </style>
@@ -205,33 +235,20 @@
             </button>
         </div>
     </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <h1>Work Experience</h1>
         <p>My Professional Journey</p>
     </section>
-    <!-- Experience Content -->
-    <div class="experience-layout">
-        <div class="side-section">
-            <h2 class="section-title">Notable Experiences</h2>
-            <div class="notable-experiences" id="notable-experiences">
-                <!-- Will be populated by JavaScript -->
-            </div>
-        </div>
-        
-        <div class="timeline-section">
-            <div class="timeline" id="timeline">
-                <!-- Will be populated by JavaScript -->
-            </div>
-        </div>
 
-        <div class="side-section">
-            <h2 class="section-title">References</h2>
-            <div class="references" id="references">
-                <!-- Will be populated by JavaScript -->
-            </div>
+    <!-- Experience Content -->
+    <div class="container">
+        <div class="timeline" id="timeline">
+            <!-- Will be populated by JavaScript -->
         </div>
     </div>
+
     <script src="/js/theme.js"></script>
     <script src="/js/experience.js"></script>
 </body>
