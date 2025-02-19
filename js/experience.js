@@ -78,6 +78,43 @@ const experiences = [
         ]
     }
 ];
+const references = [
+    {
+        name: "John Smith",
+        title: "Pro Shop Director, Cal Poly ASI",
+        company: "Cal Poly Associated Students, Inc",
+        contact: "Available upon request"
+    },
+    {
+        name: "Jane Doe",
+        title: "Security Operations Manager",
+        company: "Allied Universal",
+        contact: "Available upon request"
+    }
+    // Add more references as needed
+];
+
+const notableExperiences = [
+    {
+        title: "Leadership Development Program",
+        date: "Summer 2023",
+        organization: "Cal Poly ASI",
+        description: "Completed intensive leadership training focusing on team management and organizational development."
+    },
+    {
+        title: "Security Certification",
+        date: "Fall 2023",
+        organization: "Allied Universal",
+        description: "Achieved advanced security certification with specialized training in emergency response."
+    },
+    {
+        title: "Customer Service Excellence Award",
+        date: "Spring 2022",
+        organization: "LA Fitness",
+        description: "Recognized for outstanding customer service and team collaboration."
+    }
+    // Add more notable experiences as needed
+];
 
 // Function to create timeline entries
 function createTimelineEntries() {
@@ -139,5 +176,47 @@ function createTimelineEntries() {
     });
 }
 
-// Initialize timeline when DOM is loaded
-document.addEventListener('DOMContentLoaded', createTimelineEntries);
+// Function to create reference cards
+function createReferenceCards() {
+    const referencesContainer = document.getElementById('references');
+    
+    references.forEach(ref => {
+        const card = document.createElement('div');
+        card.className = 'reference-card';
+        
+        card.innerHTML = `
+            <div class="reference-name">${ref.name}</div>
+            <div class="reference-title">${ref.title}</div>
+            <div class="reference-company">${ref.company}</div>
+            <div class="reference-contact">${ref.contact}</div>
+        `;
+        
+        referencesContainer.appendChild(card);
+    });
+}
+
+// Function to create notable experience cards
+function createNotableExperienceCards() {
+    const notableExpContainer = document.getElementById('notable-experiences');
+    
+    notableExperiences.forEach(exp => {
+        const card = document.createElement('div');
+        card.className = 'notable-exp-card';
+        
+        card.innerHTML = `
+            <div class="notable-exp-title">${exp.title}</div>
+            <div class="notable-exp-date">${exp.date}</div>
+            <div class="notable-exp-org">${exp.organization}</div>
+            <div class="notable-exp-desc">${exp.description}</div>
+        `;
+        
+        notableExpContainer.appendChild(card);
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    createTimelineEntries();
+    createReferenceCards();
+    createNotableExperienceCards();
+});
