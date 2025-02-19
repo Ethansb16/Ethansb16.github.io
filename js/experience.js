@@ -79,23 +79,65 @@ const experiences = [
     }
 ];
 
-// Populate Experience
-const experienceGrid = document.querySelector('.experience-grid');
-experiences.forEach(exp => {
-    const expEntry = document.createElement('div');
-    expEntry.className = 'project-card';
-    expEntry.innerHTML = `
-        <div class="experience-header">
-            <h3>${exp.title}</h3>
-            <span class="experience-date">${exp.period}</span>
-        </div>
-        <h4>${exp.company}</h4>
-        <p>${exp.description}</p>
-        <ul class="experience-details">
-            ${exp.highlights.map(highlight => 
-                `<li>${highlight}</li>`
-            ).join('')}
-        </ul>
-    `;
-    experienceGrid.appendChild(expEntry);
-});
+// Function to create timeline entries
+function createTimelineEntries() {
+    const timeline = document.getElementById('timeline');
+    
+    experiences.forEach((exp, index) => {
+        // Create container
+        const container = document.createElement('div');
+        container.className = `timeline-container ${index % 2 === 0 ? 'left' : 'right'}`;
+        
+        // Create content
+        const content = document.createElement('div');
+        content.className = 'content';
+        
+        // Create date
+        const date = document.createElement('div');
+        date.className = 'date';
+        date.textContent = exp.period;
+        
+        // Create title
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.textContent = exp.title;
+        
+        // Create company
+        const company = document.createElement('div');
+        company.className = 'company';
+        company.textContent = exp.company;
+        
+        // Create description
+        const description = document.createElement('div');
+        description.className = 'description';
+        description.textContent = exp.description;
+        
+        // Create highlights list
+        const highlights = document.createElement('ul');
+        highlights.className = 'experience-highlights';
+        highlights.style.marginTop = '1rem';
+        highlights.style.paddingLeft = '1.5rem';
+        exp.highlights.forEach(highlight => {
+            const li = document.createElement('li');
+            li.textContent = highlight;
+            li.style.marginBottom = '0.5rem';
+            highlights.appendChild(li);
+        });
+        
+        // Assemble the content
+        content.appendChild(date);
+        content.appendChild(title);
+        content.appendChild(company);
+        content.appendChild(description);
+        content.appendChild(highlights);
+        
+        // Add content to container
+        container.appendChild(content);
+        
+        // Add container to timeline
+        timeline.appendChild(container);
+    });
+}
+
+// Initialize timeline when DOM is loaded
+document.addEventListener('DOMContentLoaded', createTimelineEntries);
