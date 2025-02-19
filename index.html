@@ -1,375 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Bernhardt - Computer Science Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --background-color: #f5f6fa;
-            --hover-color: #e74c3c;  /* Added hover color */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-
-        /* Add link hover styles */
-        a {
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--hover-color) !important;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1b4d3e 0%, #2d8659 50%, #3ebd7e 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-logo {
-            position: absolute;
-            bottom: 8px;
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .header-logo.left {
-            left: 8px;
-        }
-
-        .header-logo.right {
-            right: 8px;
-            height: 132px;
-        }
-
-        .profile {
-            text-align: center;
-            padding: 1rem 0;
-        }
-        
-        .profile h1 {
-            color: #FAFAFA;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.15);
-        }
-
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            border: 3px solid white;
-        }
-
-        section {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.5rem;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .experience-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .project-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            section {
-                padding: 1.5rem;
-            }
-        }
-    </style>
-</head>
+    <meta name="description" content="Computer Science Student & Network Security Specialist">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head> 
 <body>
-    <!-- Rest of the HTML remains exactly the same -->
-    <header>
-        <div class="container">
-            <img src="ASI.png" alt="ASI Logo" class="header-logo left">
-            <img src="calpoly.png" alt="Cal Poly Logo" class="header-logo right">
-            <div class="profile">
-                <img src="profilePicture.jpg" alt="Ethan Bernhardt">
-                <h1>Ethan Bernhardt</h1>
-                <p>Computer Science Student & Network Security Specialist</p>
+    <!-- Navigation -->
+    <nav class="header-nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="experience.html">Experience</a>
+                <a href="skills.html">Skills</a>
             </div>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="profilePicture.jpg" alt="Ethan Bernhardt" class="profile-img">
+        <h1>Ethan Bernhardt</h1>
+        <p>Computer Science Student & Network Security Specialist</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
         <section id="about">
-            <h2>About Me</h2>
+            <h2 class="section-header">About Me</h2>
             <p>Passionate, versatile, and ambitious student aiming to utilize my technical skills and leadership experience to excel in the field of computer science and information technology. Currently pursuing a Bachelor of Arts in Computer Science with a Network Security Concentration at California Polytechnic State University, San Luis Obispo.</p>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="experience-item">
-                <h3>California Polytechnic State University, San Luis Obispo</h3>
-                <p>Bachelor of Arts in Computer Science, Network Security Concentration</p>
-                <p>Expected Graduation: June 2026</p>
-                <ul>
-                    <li>Major GPA: 3.529</li>
-                    <li>Dean's List 2023-2024</li>
-                    <li>Relevant Coursework: Data Structures, Design and Analysis of Algorithms, Database Systems, Programming Languages, Software Engineering, Systems Programming, Security and Privacy, Object Oriented-Programming and Design</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">Python</div>
-                <div class="skill-item">Java</div>
-                <div class="skill-item">SQL</div>
-                <div class="skill-item">C</div>
-                <div class="skill-item">React</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">Prisma</div>
-                <div class="skill-item">RISC-V</div>
-                <div class="skill-item">Racket</div>
-                <div class="skill-item">Linux</div>
-                <div class="skill-item">SIEM</div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            <div class="experience-item">
-                <h3>Pro Shop Manager</h3>
-                <p>Associated Students Inc. | Jun 2024 - Present</p>
-                <ul>
-                    <li>Manage/lead a team of 19 student employees, overseeing scheduling, onboarding, and staff development</li>
-                    <li>Implemented workflow optimizations and maintained high service standards, fostering a productive and customer-focused environment</li>
-                    <li>Skills: Project Management, Leadership, Customer Service, Budget Management</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Pro Shop Attendant</h3>
-                <p>Associated Students Inc. | May 2023 - Sep 2024</p>
-                <ul>
-                    <li>Assisted in daily operations by managing sales transactions, restocking inventory, and providing excellent customer service</li>
-                    <li>Trained and guided new team members to ensure seamless integration and efficient workflow</li>
-                    <li>Skills: Team Coordination, Customer Service</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Security Guard</h3>
-                <p>Allied Universal | May 2023 - Oct 2023</p>
-                <ul>
-                    <li>Monitored security cameras and conducted regular patrols to ensure premises safety</li>
-                    <li>Controlled entry points by verifying identification and maintaining detailed visitor logs</li>
-                    <li>Responded to emergencies and documented incidents in comprehensive reports</li>
-                    <li>Skills: Physical Security, Patrol, Building Security</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Front Desk Attendant</h3>
-                <p>LA Fitness | May 2022 - Sep 2022</p>
-                <ul>
-                    <li>Managed facility operations, including opening procedures and equipment maintenance</li>
-                    <li>Handled customer service, membership verification, and administrative tasks</li>
-                    <li>Skills: Financial Services, Facility Management</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Lacrosse Coach</h3>
-                <p>Self-employed | Jun 2019 - Mar 2022</p>
-                <ul>
-                    <li>Provided personalized lacrosse training, focusing on skill development and game strategy</li>
-                    <li>Designed custom drills and analyzed player techniques to improve performance</li>
-                    <li>Skills: Sports Coaching, Lacrosse</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Technical Projects</h2>
-            <div class="project-item">
-                <h3><a href="https://github.com/Ethansb16/TCP-Server-C" style="color: var(--primary-color); text-decoration: none;">TCP Server Construction - C</a></h3>
-                <ul>
-                    <li>Built a multithreaded TCP server to handle HTTP requests and execute cgi-bin operations</li>
-                    <li>Implemented robust error handling and optimized for performance on a local server</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/Ethansb16/MySQL-Python-Database-Integration" style="color: var(--primary-color); text-decoration: none;">Database Engineering - MySQL & Python</a></h3>
-                <ul>
-                    <li>Designed and implemented a database using MySQL connected to a Python application</li>
-                    <li>Created a custom interactive terminal menu for searching, adding, and deleting from the database</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3><a href="https://github.com/CSC307Fall2024/Plus" style="color: var(--primary-color); text-decoration: none;">Web Application Development - TypeScript</a></h3>
-                <ul>
-                    <li>Developed a fully functional web application that connects users to plus-ones for events via invite/apply</li>
-                    <li>Developed in Next.js, connected to a custom Prisma database, Tailwind CSS for styling</li>
-                    <li>Worked full stack creating dynamic components that implement custom API calls</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="security-projects">
-            <h2><a href="https://github.com/Ethansb16/SecurityPlayground" style="color: var(--primary-color); text-decoration: none;">Privacy and Security Projects</a></h2>
-            <div class="project-item">
-                <h3>EBC and CBC Ciphers</h3>
-                <ul>
-                    <li>Implemented custom CBC (Cipher Block Chaining) and ECB (Electronic Code Book) 
-                        encryption modes using Python, featuring proper IV handling, PKCS7 padding, and block segmentation for secure data transmission</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Alpha Generator</h3>
-                <ul>
-                    <li>Developed a tool for analyzing and performing alpha generator attacks on Diffie-Hellman key exchange</li>
-                    <li>Demonstrated practical vulnerabilities in cryptographic implementations</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>ARP Spoofer</h3>
-                <ul>
-                    <li>Created a tool to demonstrate ARP spoofing attacks in network environments</li>
-                    <li>Implemented network packet manipulation and analysis capabilities</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>BCrypt Password Cracker</h3>
-                <ul>
-                    <li>Developed a tool for analyzing BCrypt password hashing security</li>
-                    <li>Implemented password cracking techniques to demonstrate cryptographic vulnerabilities</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>Diffie-Hellman Implementation</h3>
-                <ul>
-                    <li>Implemented secure key exchange using the PyCryptodome library</li>
-                    <li>Demonstrated practical application of cryptographic protocols</li>
-                    <li>Simulated Diffie-Hellmen key exchange and demonstrated possible MITM attacks</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <h3>RSA Implementation</h3>
-                <ul>
-                    <li>Created a custom implementation of the RSA encryption algorithm</li>
-                    <li>Demonstrated understanding of public-key cryptography principles</li>
-                </ul>
-            </div>
-        </section>
-
+        <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
+            <h2 class="section-header">Contact</h2>
+            <div class="contact-grid">
                 <div class="contact-item">
-                    <span>📍</span>
-                    <p>San Luis Obispo, CA</p>
-                </div>
-                <div class="contact-item">
-                    <span>📧</span>
+                    <i class="fas fa-envelope"></i>
                     <a href="mailto:ethanbernh@gmail.com">ethanbernh@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <span>📱</span>
-                    <a href="tel:5033327118">(503) 332-7118</a>
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Ethansb16">GitHub</a>
                 </div>
                 <div class="contact-item">
-                    <span>💼</span>
+                    <i class="fab fa-linkedin"></i>
                     <a href="https://www.linkedin.com/in/ethan-bernhardt-705015256/">LinkedIn</a>
                 </div>
                 <div class="contact-item">
-                    <span>💻</span>
-                    <a href="https://github.com/Ethansb16">GitHub</a>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>San Luis Obispo, CA</span>
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ethan Bernhardt. All rights reserved.</p>
-        </div>
-    </footer>
+<script src="/js/theme.js"></script>
 </body>
 </html>
