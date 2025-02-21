@@ -393,3 +393,40 @@ body {
 [data-theme="dark"] .security-collection .sub-project {
     border-color: rgba(255,255,255,0.1);
 }
+.timeline-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.timeline-container.left {
+    flex-direction: row-reverse;
+}
+
+.timeline-container.right {
+    flex-direction: row;
+}
+
+.content {
+    width: calc(50% - 20px);
+}
+
+.opposite-side {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-container {
+        flex-direction: column;
+    }
+    
+    .content {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .opposite-side {
+        order: 2;
+    }
+}
