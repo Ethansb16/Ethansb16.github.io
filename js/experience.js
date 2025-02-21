@@ -140,21 +140,37 @@ function createExperienceEntry(exp, side) {
 }
 
 // Helper function to create reference entries
-function createReferenceEntry(ref, side) {
+function createTimelineRow(exp, side) {
     const container = document.createElement('div');
     container.className = `timeline-container ${side}`;
     
-    const content = document.createElement('div');
-    content.className = 'content reference-entry';
-    
-    content.innerHTML = `
-        <div class="reference-tag">Reference</div>
-        <div class="reference-name">${ref.name}</div>
-        <div class="reference-title">${ref.title}</div>
-        <div class="reference-contact">${ref.contact}</div>
+    // Create the main job content
+    const jobContent = document.createElement('div');
+    jobContent.className = 'content experience-entry';
+    jobContent.innerHTML = `
+        <div class="date">${exp.period}</div>
+        <div class="title">${exp.title}</div>
+        <div class="company">${exp.company}</div>
+        <div class="description">${exp.description}</div>
+        <ul class="highlights">
+            ${exp.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+        </ul>
     `;
     
-    container.appendChild(content);
+    // If there's a reference, create the reference content on the opposite side
+    if (exp.reference) {
+        const refContent = document.createElement('div');
+        refContent.className = 'content reference-entry opposite-side';
+        refContent.innerHTML = `
+            <div class="reference-tag">Reference</div>
+            <div class="reference-name">${exp.reference.name}</div>
+            <div class="reference-title">${exp.reference.title}</div>
+            <div class="reference-contact">${exp.reference.contact}</div>
+        `;
+        container.appendChild(refContent);
+    }
+    
+    container.appendChild(jobContent);
     return container;
 }
 
@@ -184,14 +200,9 @@ function createTimelineEntries() {
     let achievementIndex = 0;
     
     experiences.forEach((exp, index) => {
-        // Create job entry and its reference (if any) as a pair
-        const jobContainer = createExperienceEntry(exp, currentSide);
-        timeline.appendChild(jobContainer);
-        
-        if (exp.reference) {
-            const refContainer = createReferenceEntry(exp.reference, currentSide === 'left' ? 'right' : 'left');
-            timeline.appendChild(refContainer);
-        }
+        // Create job entry with its reference (if any) as a single row
+        const timelineRow = createTimelineRow(exp, currentSide);
+        timeline.appendChild(timelineRow);
         
         // Add any notable achievements that should appear after this job
         while (achievementIndex < notableAchievements.length && 
