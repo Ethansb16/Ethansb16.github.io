@@ -87,7 +87,7 @@ const experiences = [
             "Designed conditioning and improvement plans"
         ]
     }
-];
+]; 
 
 // Separate notable achievements that can be placed anywhere
 const notableAchievements = [
