@@ -218,6 +218,13 @@ body {
 }
 
 /* Experience Entries */
+.experience-entry {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
 .experience-entry .date {
     color: var(--primary-color);
     font-weight: bold;
@@ -250,68 +257,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* References Container */
-.references-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.reference-entry {
-    background-color: var(--card-background);
-    border-left: 4px solid var(--primary-color);
-}
-
-.reference-tag {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-.reference-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-}
-
-.reference-title {
-    color: var(--secondary-color);
-    margin-bottom: 0.3rem;
-}
-
-.reference-contact {
-    font-style: italic;
-    font-size: 0.9rem;
-}
-
-/* Notable Entries */
-.notable-entry {
-    background-color: var(--card-background);
-    border-left: 4px solid var(--accent-color);
-}
-
-.notable-tag {
-    color: var(--accent-color);
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-.notable-title {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-}
-
-.notable-date {
-    color: var(--secondary-color);
-    font-style: italic;
-    margin-bottom: 0.3rem;
-}
-
 /* Projects Grid */
 .projects-grid {
     display: grid;
@@ -331,6 +276,35 @@ body {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-bar {
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.skill-progress {
+    margin-top: 0.5rem;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: var(--secondary-color);
+    transition: width 1s ease-out;
 }
 
 /* Contact Grid */
@@ -363,125 +337,6 @@ body {
 .contact-item a {
     color: var(--text-color);
     text-decoration: none;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        gap: 1rem;
-    }
-
-    .container {
-        padding: 1rem;
-    }
-
-    .section-header {
-        font-size: 1.75rem;
-    }
-
-    .projects-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    /* Hide the timeline and corner logos on mobile */
-    .timeline::after {
-        display: none;
-    }
-
-    .corner-logo {
-        display: none;
-    }
-
-    /* Stack timeline content vertically */
-    .timeline-row {
-        flex-direction: column;
-        border-bottom: 1px solid var(--secondary-color);
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
-
-    .timeline-row:last-child {
-        border-bottom: none;
-    }
-
-    .timeline-container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    /* Hide timeline dots */
-    .timeline-container:has(.experience-entry)::after,
-    .timeline-container:has(.notable-entry)::after {
-        display: none;
-    }
-
-    /* Adjust content margins */
-    .timeline-container.left .content,
-    .timeline-container.right .content {
-        margin: 0 0 1rem 0;
-        width: 100%;
-        max-width: none;
-    }
-
-    .references-container {
-        margin-top: 0.5rem;
-    }
-
-    .hero {
-        padding: 2rem 0;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .nav-container {
-        padding: 0 1rem;
-    }
-}
-/* Skills */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.skill-bar {
-    background: var(--card-background);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.skill-progress {
-    margin-top: 0.5rem;
-    height: 8px;
-    background: #eee;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-fill {
-    height: 100%;
-    background: var(--secondary-color);
-    transition: width 1s ease-out;
 }
 
 /* Tech Tags */
@@ -536,7 +391,7 @@ body {
 
 /* Security Collection */
 .project-card.security-collection {
-    grid-column: 1 / -1; /* Makes it span full width */
+    grid-column: 1 / -1;
     margin-top: 2rem;
     padding: 2rem;
 }
@@ -579,4 +434,87 @@ body {
 
 [data-theme="dark"] .security-collection .sub-project {
     border-color: rgba(255,255,255,0.1);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .section-header {
+        font-size: 1.75rem;
+    }
+
+    .projects-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        display: none;
+    }
+
+    .corner-logo {
+        display: none;
+    }
+
+    .timeline-row {
+        flex-direction: column;
+        border-bottom: 1px solid var(--secondary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .timeline-row:last-child {
+        border-bottom: none;
+    }
+
+    .timeline-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .timeline-container:has(.experience-entry)::after,
+    .timeline-container:has(.notable-entry)::after {
+        display: none;
+    }
+
+    .timeline-container.left .content,
+    .timeline-container.right .content {
+        margin: 0 0 1rem 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
 }
