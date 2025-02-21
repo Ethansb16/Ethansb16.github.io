@@ -139,7 +139,7 @@ function createExperienceEntry(exp, side) {
     return container;
 }
 
-// Helper function to create reference entries
+// Helper function to create a timeline row with job and reference
 function createTimelineRow(exp, side) {
     const container = document.createElement('div');
     container.className = `timeline-container ${side}`;
@@ -217,6 +217,3 @@ function createTimelineEntries() {
         currentSide = currentSide === 'left' ? 'right' : 'left';
     });
 }
-
-// Initialize timeline when DOM is loaded
-document.addEventListener('DOMContentLoaded', createTimelineEntries);
