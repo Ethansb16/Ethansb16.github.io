@@ -33,29 +33,24 @@
             border-radius: 3px;
         }
 
-        /* New row structure */
+<!-- Keep all your existing CSS but replace/add these specific sections -->
+
         .timeline-row {
             display: flex;
             justify-content: space-between;
+            position: relative;
             margin-bottom: 20px;
         }
 
         .timeline-container {
             position: relative;
             width: 50%;
+            padding: 10px 40px;
             animation: fadeIn 0.5s ease-in-out;
         }
 
-        .timeline-container.left {
-            padding-right: 40px;
-        }
-
-        .timeline-container.right {
-            padding-left: 40px;
-        }
-
-        /* Adjust timeline dots */
-        .timeline-container::after {
+        /* Ensure both left and right containers show timeline dots */
+        .timeline-container:not(:empty)::after {
             content: '';
             position: absolute;
             width: 20px;
@@ -67,23 +62,37 @@
             z-index: 1;
         }
 
-        .timeline-container.left::after {
+        .timeline-container.left {
+            padding-right: 40px;
+        }
+
+        .timeline-container.right {
+            padding-left: 40px;
+        }
+
+        .timeline-container.left:not(:empty)::after {
             right: -10px;
         }
 
-        .timeline-container.right::after {
+        .timeline-container.right:not(:empty)::after {
             left: -10px;
         }
 
         /* Content alignment */
         .timeline-container.left .content {
-            margin-left: 0;
             margin-right: 20px;
         }
 
         .timeline-container.right .content {
             margin-left: 20px;
-            margin-right: 0;
+        }
+
+        .timeline-container:empty {
+            padding: 0;
+        }
+
+        .timeline-container:empty::after {
+            display: none;
         }
 
         .content {
@@ -217,36 +226,24 @@
             background-color: var(--background-color, #1a1a1a);
         }
 
+        /* Keep your existing mobile styles but update these parts */
         @media screen and (max-width: 600px) {
             .timeline-row {
                 flex-direction: column;
             }
 
-            .timeline::after {
-                left: 31px;
-            }
-
             .timeline-container {
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
             }
 
-            .timeline-container.left,
-            .timeline-container.right {
-                padding-left: 70px;
-                padding-right: 25px;
+            .timeline-container:not(:empty)::after {
+                left: 21px;
             }
 
             .timeline-container.left .content,
             .timeline-container.right .content {
-                margin-left: 0;
+                margin-left: 30px;
                 margin-right: 0;
-            }
-
-            .timeline-container.left::after,
-            .timeline-container.right::after {
-                left: 21px;
             }
         }
     </style>
