@@ -7,6 +7,39 @@
     <meta name="description" content="Computer Science Student & Network Security Specialist">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .hero {
+            position: relative;
+        }
+        
+        .corner-logo {
+            position: absolute;
+            bottom: 20px;
+            width: auto;
+        }
+        
+        .corner-logo.left {
+            height: 60px;
+        }
+        
+        .corner-logo.right {
+            height: 132px; 
+        }
+        
+        .corner-logo.left {
+            left: 20px;
+        }
+        
+        .corner-logo.right {
+            right: 20px;
+        }
+             /* Hide logos on mobile */
+        @media screen and (max-width: 600px) {
+            .corner-logo {
+                display: none;
+            }
+        }
+    </style>
 </head> 
 <body>
     <!-- Navigation -->
@@ -29,6 +62,8 @@
         <img src="profilePicture.jpg" alt="Ethan Bernhardt" class="profile-img">
         <h1>Ethan Bernhardt</h1>
         <p>Computer Science Student & Network Security Specialist</p>
+        <img src="ASI.png" alt="ASI Logo" class="corner-logo left">
+        <img src="calpoly.png" alt="Cal Poly Logo" class="corner-logo right">
     </section>
 
     <!-- Main Content -->
