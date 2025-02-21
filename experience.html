@@ -228,23 +228,53 @@
         }
 
         @media screen and (max-width: 600px) {
+            /* Hide the timeline line on mobile */
+            .timeline::after {
+                display: none;
+            }
+        
+            /* Stack the content vertically */
             .timeline-row {
                 flex-direction: column;
             }
-        
+            
             .timeline-container {
+                width: 100%;
+                padding: 10px;  /* Reset padding */
+            }
+            
+            /* Hide the timeline dots */
+            .timeline-container:has(.experience-entry)::after,
+            .timeline-container:has(.notable-entry)::after {
+                display: none;
+            }
+            
+            /* Adjust content margins */
+            .timeline-container.left .content,
+            .timeline-container.right .content {
+                margin: 0 0 1rem 0;
                 width: 100%;
             }
         
-            .timeline-container:has(.experience-entry)::after,
-            .timeline-container:has(.notable-entry)::after {
-                left: 21px;
+            /* Add some separation between entries */
+            .references-container {
+                margin-top: 0.5rem;
             }
         
-            .timeline-container.left .content,
-            .timeline-container.right .content {
-                margin-left: 30px;
-                margin-right: 0;
+            /* Make content full width */
+            .content {
+                max-width: none;
+            }
+        
+            /* Optional: Add some visual separation between job entries */
+            .timeline-row {
+                border-bottom: 1px solid var(--secondary-color);
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+        
+            .timeline-row:last-child {
+                border-bottom: none;
             }
         }
     </style>
