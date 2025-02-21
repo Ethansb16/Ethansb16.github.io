@@ -104,13 +104,13 @@ const notableAchievements = [
         description: "Recognized for exceptional customer service and team support."
     },
     {
-        position: 4, // After fourth job entry
+        position: 6, // After fourth job entry
         title: "Service Excellence Recognition",
         date: "August 2022",
         description: "Received recognition for outstanding member service and operational efficiency."
     },
     {
-        position: 6, // After last job entry
+        position: 4, // After last job entry
         title: "Youth Development Award",
         date: "Spring 2021",
         description: "Recognized by local sports community for excellence in youth athlete development."
