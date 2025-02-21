@@ -1,4 +1,4 @@
-// Experience Data with associated references and notable experiences
+// Main experience data
 const experiences = [
     {
         title: "Pro Shop Manager",
@@ -16,14 +16,7 @@ const experiences = [
             name: "John Smith",
             title: "Pro Shop Director",
             contact: "Available upon request"
-        },
-        notableExperiences: [
-            {
-                title: "Leadership Development Program",
-                date: "Summer 2024",
-                description: "Completed intensive leadership training for student managers, focusing on team management and organizational development."
-            }
-        ]
+        }
     },
     {
         title: "Pro Shop Attendant",
@@ -35,13 +28,6 @@ const experiences = [
             "Maintained and restocked inventory",
             "Provided excellent customer service",
             "Trained and guided new team members"
-        ],
-        notableExperiences: [
-            {
-                title: "Employee of the Month",
-                date: "July 2023",
-                description: "Recognized for exceptional customer service and team support."
-            }
         ]
     },
     {
@@ -73,13 +59,6 @@ const experiences = [
             "Handled customer inquiries and scheduling",
             "Maintained clean and organized facilities",
             "Managed administrative tasks"
-        ],
-        notableExperiences: [
-            {
-                title: "Service Excellence Recognition",
-                date: "August 2022",
-                description: "Received recognition for outstanding member service and operational efficiency."
-            }
         ]
     },
     {
@@ -106,14 +85,35 @@ const experiences = [
             "Analyzed player techniques",
             "Provided mentorship to athletes",
             "Designed conditioning and improvement plans"
-        ],
-        notableExperiences: [
-            {
-                title: "Youth Development Award",
-                date: "Spring 2021",
-                description: "Recognized by local sports community for excellence in youth athlete development."
-            }
         ]
+    }
+];
+
+// Separate notable achievements that can be placed anywhere
+const notableAchievements = [
+    {
+        position: 1, // After first job entry
+        title: "Leadership Development Program",
+        date: "Summer 2024",
+        description: "Completed intensive leadership training for student managers, focusing on team management and organizational development."
+    },
+    {
+        position: 2, // After second job entry
+        title: "Employee of the Month",
+        date: "July 2023",
+        description: "Recognized for exceptional customer service and team support."
+    },
+    {
+        position: 4, // After fourth job entry
+        title: "Service Excellence Recognition",
+        date: "August 2022",
+        description: "Received recognition for outstanding member service and operational efficiency."
+    },
+    {
+        position: 6, // After last job entry
+        title: "Youth Development Award",
+        date: "Spring 2021",
+        description: "Recognized by local sports community for excellence in youth athlete development."
     }
 ];
 
@@ -158,7 +158,7 @@ function createReferenceEntry(ref, side) {
     return container;
 }
 
-// Helper function to create notable experience entries
+// Helper function to create notable achievement entries
 function createNotableEntry(notable, side) {
     const container = document.createElement('div');
     container.className = `timeline-container ${side}`;
@@ -180,30 +180,30 @@ function createNotableEntry(notable, side) {
 // Main function to create timeline entries
 function createTimelineEntries() {
     const timeline = document.getElementById('timeline');
-    let currentSide = 'left'; // Track current side for main entries
+    let currentSide = 'left';
+    let achievementIndex = 0;
     
-    experiences.forEach((exp) => {
-        // Create main experience entry
-        const expContainer = createExperienceEntry(exp, currentSide);
-        timeline.appendChild(expContainer);
-        
-        // Create reference or notable experience on the opposite side if available
-        const oppositeSide = currentSide === 'left' ? 'right' : 'left';
+    experiences.forEach((exp, index) => {
+        // Create job entry and its reference (if any) as a pair
+        const jobContainer = createExperienceEntry(exp, currentSide);
+        timeline.appendChild(jobContainer);
         
         if (exp.reference) {
-            const refContainer = createReferenceEntry(exp.reference, oppositeSide);
+            const refContainer = createReferenceEntry(exp.reference, currentSide === 'left' ? 'right' : 'left');
             timeline.appendChild(refContainer);
         }
         
-        if (exp.notableExperiences) {
-            exp.notableExperiences.forEach(notable => {
-                const notableContainer = createNotableEntry(notable, oppositeSide);
-                timeline.appendChild(notableContainer);
-            });
+        // Add any notable achievements that should appear after this job
+        while (achievementIndex < notableAchievements.length && 
+               notableAchievements[achievementIndex].position === index + 1) {
+            const achievement = notableAchievements[achievementIndex];
+            const achievementContainer = createNotableEntry(achievement, currentSide === 'left' ? 'right' : 'left');
+            timeline.appendChild(achievementContainer);
+            achievementIndex++;
         }
         
-        // Switch sides for next main entry
-        currentSide = oppositeSide;
+        // Switch sides for next entry
+        currentSide = currentSide === 'left' ? 'right' : 'left';
     });
 }
 
