@@ -33,8 +33,6 @@
             border-radius: 3px;
         }
 
-<!-- Keep all your existing CSS but replace/add these specific sections -->
-
         .timeline-row {
             display: flex;
             justify-content: space-between;
@@ -50,7 +48,8 @@
         }
 
         /* Ensure both left and right containers show timeline dots */
-        .timeline-container:not(:empty)::after {
+        .timeline-container:has(.experience-entry)::after,
+        .timeline-container:has(.notable-entry)::after {
             content: '';
             position: absolute;
             width: 20px;
@@ -61,32 +60,34 @@
             top: 15px;
             z-index: 1;
         }
-
+        
         .timeline-container.left {
             padding-right: 40px;
         }
-
+        
         .timeline-container.right {
             padding-left: 40px;
         }
-
-        .timeline-container.left:not(:empty)::after {
+        
+        .timeline-container.left:has(.experience-entry)::after,
+        .timeline-container.left:has(.notable-entry)::after {
             right: -10px;
         }
-
-        .timeline-container.right:not(:empty)::after {
+        
+        .timeline-container.right:has(.experience-entry)::after,
+        .timeline-container.right:has(.notable-entry)::after {
             left: -10px;
         }
-
+        
         /* Content alignment */
         .timeline-container.left .content {
             margin-right: 20px;
         }
-
+        
         .timeline-container.right .content {
             margin-left: 20px;
         }
-
+        
         .timeline-container:empty {
             padding: 0;
         }
@@ -226,20 +227,20 @@
             background-color: var(--background-color, #1a1a1a);
         }
 
-        /* Keep your existing mobile styles but update these parts */
         @media screen and (max-width: 600px) {
             .timeline-row {
                 flex-direction: column;
             }
-
+        
             .timeline-container {
                 width: 100%;
             }
-
-            .timeline-container:not(:empty)::after {
+        
+            .timeline-container:has(.experience-entry)::after,
+            .timeline-container:has(.notable-entry)::after {
                 left: 21px;
             }
-
+        
             .timeline-container.left .content,
             .timeline-container.right .content {
                 margin-left: 30px;
