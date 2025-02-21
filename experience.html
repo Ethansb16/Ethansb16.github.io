@@ -33,13 +33,28 @@
             border-radius: 3px;
         }
 
+        /* New row structure */
+        .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
         .timeline-container {
-            padding: 10px 40px;
             position: relative;
             width: 50%;
             animation: fadeIn 0.5s ease-in-out;
         }
 
+        .timeline-container.left {
+            padding-right: 40px;
+        }
+
+        .timeline-container.right {
+            padding-left: 40px;
+        }
+
+        /* Adjust timeline dots */
         .timeline-container::after {
             content: '';
             position: absolute;
@@ -52,20 +67,23 @@
             z-index: 1;
         }
 
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::after {
+        .timeline-container.left::after {
             right: -10px;
         }
 
-        .right::after {
+        .timeline-container.right::after {
             left: -10px;
+        }
+
+        /* Content alignment */
+        .timeline-container.left .content {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+
+        .timeline-container.right .content {
+            margin-left: 20px;
+            margin-right: 0;
         }
 
         .content {
@@ -200,6 +218,10 @@
         }
 
         @media screen and (max-width: 600px) {
+            .timeline-row {
+                flex-direction: column;
+            }
+
             .timeline::after {
                 left: 31px;
             }
@@ -210,11 +232,20 @@
                 padding-right: 25px;
             }
 
-            .right {
-                left: 0;
+            .timeline-container.left,
+            .timeline-container.right {
+                padding-left: 70px;
+                padding-right: 25px;
             }
 
-            .left::after, .right::after {
+            .timeline-container.left .content,
+            .timeline-container.right .content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-container.left::after,
+            .timeline-container.right::after {
                 left: 21px;
             }
         }
