@@ -117,34 +117,18 @@ const notableAchievements = [
     }
 ];
 
-// Helper function to create main experience entries
-function createExperienceEntry(exp, side) {
-    const container = document.createElement('div');
-    container.className = `timeline-container ${side}`;
+function createTimelineRow(exp, jobSide) {
+    const row = document.createElement('div');
+    row.className = 'timeline-row';
     
-    const content = document.createElement('div');
-    content.className = 'content experience-entry';
+    // Create containers for both sides
+    const leftContainer = document.createElement('div');
+    leftContainer.className = 'timeline-container left';
     
-    content.innerHTML = `
-        <div class="date">${exp.period}</div>
-        <div class="title">${exp.title}</div>
-        <div class="company">${exp.company}</div>
-        <div class="description">${exp.description}</div>
-        <ul class="highlights">
-            ${exp.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
-        </ul>
-    `;
+    const rightContainer = document.createElement('div');
+    rightContainer.className = 'timeline-container right';
     
-    container.appendChild(content);
-    return container;
-}
-
-// Helper function to create a timeline row with job and reference
-function createTimelineRow(exp, side) {
-    const container = document.createElement('div');
-    container.className = `timeline-container ${side}`;
-    
-    // Create the main job content
+    // Create the job content
     const jobContent = document.createElement('div');
     jobContent.className = 'content experience-entry';
     jobContent.innerHTML = `
@@ -157,31 +141,52 @@ function createTimelineRow(exp, side) {
         </ul>
     `;
     
-    // If there's a reference, create the reference content on the opposite side
+    // If there's a reference, create the reference content
     if (exp.reference) {
         const refContent = document.createElement('div');
-        refContent.className = 'content reference-entry opposite-side';
+        refContent.className = 'content reference-entry';
         refContent.innerHTML = `
             <div class="reference-tag">Reference</div>
             <div class="reference-name">${exp.reference.name}</div>
             <div class="reference-title">${exp.reference.title}</div>
             <div class="reference-contact">${exp.reference.contact}</div>
         `;
-        container.appendChild(refContent);
+        
+        // Place job and reference on opposite sides
+        if (jobSide === 'left') {
+            leftContainer.appendChild(jobContent);
+            rightContainer.appendChild(refContent);
+        } else {
+            rightContainer.appendChild(jobContent);
+            leftContainer.appendChild(refContent);
+        }
+    } else {
+        // If no reference, just place the job content
+        if (jobSide === 'left') {
+            leftContainer.appendChild(jobContent);
+        } else {
+            rightContainer.appendChild(jobContent);
+        }
     }
     
-    container.appendChild(jobContent);
-    return container;
+    row.appendChild(leftContainer);
+    row.appendChild(rightContainer);
+    return row;
 }
 
 // Helper function to create notable achievement entries
 function createNotableEntry(notable, side) {
-    const container = document.createElement('div');
-    container.className = `timeline-container ${side}`;
+    const row = document.createElement('div');
+    row.className = 'timeline-row';
+    
+    const leftContainer = document.createElement('div');
+    leftContainer.className = 'timeline-container left';
+    
+    const rightContainer = document.createElement('div');
+    rightContainer.className = 'timeline-container right';
     
     const content = document.createElement('div');
     content.className = 'content notable-entry';
-    
     content.innerHTML = `
         <div class="notable-tag">Notable Achievement</div>
         <div class="notable-title">${notable.title}</div>
@@ -189,8 +194,15 @@ function createNotableEntry(notable, side) {
         <div class="notable-description">${notable.description}</div>
     `;
     
-    container.appendChild(content);
-    return container;
+    if (side === 'left') {
+        leftContainer.appendChild(content);
+    } else {
+        rightContainer.appendChild(content);
+    }
+    
+    row.appendChild(leftContainer);
+    row.appendChild(rightContainer);
+    return row;
 }
 
 // Main function to create timeline entries
@@ -208,7 +220,8 @@ function createTimelineEntries() {
         while (achievementIndex < notableAchievements.length && 
                notableAchievements[achievementIndex].position === index + 1) {
             const achievement = notableAchievements[achievementIndex];
-            const achievementContainer = createNotableEntry(achievement, currentSide === 'left' ? 'right' : 'left');
+            const achievementContainer = createNotableEntry(achievement, 
+                currentSide === 'left' ? 'right' : 'left');
             timeline.appendChild(achievementContainer);
             achievementIndex++;
         }
@@ -217,3 +230,6 @@ function createTimelineEntries() {
         currentSide = currentSide === 'left' ? 'right' : 'left';
     });
 }
+
+// Initialize timeline when DOM is loaded
+document.addEventListener('DOMContentLoaded', createTimelineEntries);
