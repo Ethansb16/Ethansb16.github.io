@@ -1,4 +1,4 @@
-// Main experience data
+// Main experience data 
 const experiences = [
     {
         title: "Pro Shop Manager",
