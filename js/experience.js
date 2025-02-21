@@ -35,7 +35,14 @@ const experiences = [
             "Maintained and restocked inventory",
             "Provided excellent customer service",
             "Trained and guided new team members"
-        ]
+        ],
+                    references: [  
+        {
+            name: "Vincent Wai",
+            title: "Student Manager -- Pro Shop",
+            contact: "Available upon request"
+        }
+    ]
     },
     {
         title: "Security Guard",
@@ -61,7 +68,14 @@ const experiences = [
             "Handled customer inquiries and scheduling",
             "Maintained clean and organized facilities",
             "Managed administrative tasks"
-        ]
+        ], 
+                    references: [  
+        {
+            name: "Roberto Rojas",
+            title: "Operational Manager -- LA Fitness",
+            contact: "Available upon request"
+        }
+    ]
     },
     {
         title: "Crew Member",
@@ -88,11 +102,13 @@ const experiences = [
             "Provided mentorship to athletes",
             "Designed conditioning and improvement plans"
         ],
-        reference: {
+            references: [  
+        {
             name: "Frank Obiesie",
             title: "Head Coach -- Lakeridge Varsity Lacrosse",
             contact: "Available upon request"
         }
+    ]
     }
 ]; 
 
