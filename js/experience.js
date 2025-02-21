@@ -12,11 +12,18 @@ const experiences = [
             "Maintain high service standards",
             "Foster productive and customer-focused environment"
         ],
-        reference: {
-            name: "John Smith",
-            title: "Pro Shop Director",
+            references: [  
+        {
+            name: "Nancy Clark",
+            title: "Assistant Director -- Recreational Sports",
+            contact: "Available upon request"
+        },
+        {
+            name: "Keegan Draper",
+            title: "Coordinator -- Recreational Sport",
             contact: "Available upon request"
         }
+    ]
     },
     {
         title: "Pro Shop Attendant",
@@ -42,11 +49,6 @@ const experiences = [
             "Responded to emergencies and security issues",
             "Documented incidents and daily activities"
         ],
-        reference: {
-            name: "Jane Doe",
-            title: "Security Operations Manager",
-            contact: "Available upon request"
-        }
     },
     {
         title: "Front Desk Attendant",
@@ -85,7 +87,12 @@ const experiences = [
             "Analyzed player techniques",
             "Provided mentorship to athletes",
             "Designed conditioning and improvement plans"
-        ]
+        ],
+        reference: {
+            name: "Frank Obiesie",
+            title: "Head Coach -- Lakeridge Varsity Lacrosse",
+            contact: "Available upon request"
+        }
     }
 ]; 
 
@@ -141,27 +148,33 @@ function createTimelineRow(exp, jobSide) {
         </ul>
     `;
     
-    // If there's a reference, create the reference content
-    if (exp.reference) {
-        const refContent = document.createElement('div');
-        refContent.className = 'content reference-entry';
-        refContent.innerHTML = `
-            <div class="reference-tag">Reference</div>
-            <div class="reference-name">${exp.reference.name}</div>
-            <div class="reference-title">${exp.reference.title}</div>
-            <div class="reference-contact">${exp.reference.contact}</div>
-        `;
+    // If there are references, create reference content
+    if (exp.references && exp.references.length > 0) {
+        const referencesContainer = document.createElement('div');
+        referencesContainer.className = 'references-container';
         
-        // Place job and reference on opposite sides
+        exp.references.forEach(ref => {
+            const refContent = document.createElement('div');
+            refContent.className = 'content reference-entry';
+            refContent.innerHTML = `
+                <div class="reference-tag">Reference</div>
+                <div class="reference-name">${ref.name}</div>
+                <div class="reference-title">${ref.title}</div>
+                <div class="reference-contact">${ref.contact}</div>
+            `;
+            referencesContainer.appendChild(refContent);
+        });
+        
+        // Place job and references on opposite sides
         if (jobSide === 'left') {
             leftContainer.appendChild(jobContent);
-            rightContainer.appendChild(refContent);
+            rightContainer.appendChild(referencesContainer);
         } else {
             rightContainer.appendChild(jobContent);
-            leftContainer.appendChild(refContent);
+            leftContainer.appendChild(referencesContainer);
         }
     } else {
-        // If no reference, just place the job content
+        // If no references, just place the job content
         if (jobSide === 'left') {
             leftContainer.appendChild(jobContent);
         } else {
