@@ -34,7 +34,7 @@ body {
     background-color: var(--background-color);
 }
 
-/* Sticky Header */
+/* Header Navigation */
 .header-nav {
     position: sticky;
     top: 0;
@@ -85,6 +85,7 @@ body {
     color: white;
     padding: 4rem 0;
     text-align: center;
+    position: relative;
 }
 
 .profile-img {
@@ -95,11 +96,36 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Main Content */
+/* Corner Logo Styles */
+.corner-logo {
+    position: absolute;
+    bottom: 20px;
+    width: auto;
+}
+
+.corner-logo.left {
+    height: 60px;
+    left: 20px;
+}
+
+.corner-logo.right {
+    height: 132px;
+    right: 20px;
+}
+
+/* Main Container */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+/* Section Headers */
+.section-header {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 /* Timeline Styles */
@@ -153,21 +179,6 @@ body {
     margin-right: auto;
 }
 
-.content {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.content:hover {
-    transform: translateY(-5px);
-}
-
-/* Only show timeline dots for experience and notable entries */
 .timeline-container:has(.experience-entry)::after,
 .timeline-container:has(.notable-entry)::after {
     content: '';
@@ -191,7 +202,22 @@ body {
     left: -10px;
 }
 
-/* Experience entry specific styles */
+/* Content Styles */
+.content {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-5px);
+}
+
+/* Experience Entries */
 .experience-entry .date {
     color: var(--primary-color);
     font-weight: bold;
@@ -202,7 +228,6 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
 }
 
 .experience-entry .company {
@@ -212,7 +237,6 @@ body {
 }
 
 .experience-entry .description {
-    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -220,14 +244,13 @@ body {
     margin-top: 1rem;
     padding-left: 1.5rem;
     list-style-type: disc;
-    color: var(--text-color);
 }
 
 .experience-entry .highlights li {
     margin-bottom: 0.5rem;
 }
 
-/* Reference entry specific styles */
+/* References Container */
 .references-container {
     display: flex;
     flex-direction: column;
@@ -251,7 +274,6 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
-    color: var(--text-color);
 }
 
 .reference-title {
@@ -260,12 +282,11 @@ body {
 }
 
 .reference-contact {
-    color: var(--text-color);
     font-style: italic;
     font-size: 0.9rem;
 }
 
-/* Notable entry specific styles */
+/* Notable Entries */
 .notable-entry {
     background-color: var(--card-background);
     border-left: 4px solid var(--accent-color);
@@ -283,7 +304,6 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
-    color: var(--text-color);
 }
 
 .notable-date {
@@ -292,11 +312,7 @@ body {
     margin-bottom: 0.3rem;
 }
 
-.notable-description {
-    color: var(--text-color);
-}
-
-/* Projects Section */
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -317,15 +333,39 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Section Headers */
-.section-header {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-/* Animations */
+.contact-item {
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -347,46 +387,59 @@ body {
         padding: 1rem;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .section-header {
         font-size: 1.75rem;
+    }
+
+    .projects-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media screen and (max-width: 600px) {
+    /* Hide the timeline and corner logos on mobile */
     .timeline::after {
-        left: 31px;
+        display: none;
     }
 
+    .corner-logo {
+        display: none;
+    }
+
+    /* Stack timeline content vertically */
     .timeline-row {
         flex-direction: column;
+        border-bottom: 1px solid var(--secondary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
     }
-    
+
+    .timeline-row:last-child {
+        border-bottom: none;
+    }
+
     .timeline-container {
         width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
+        padding: 10px;
     }
-    
-    .timeline-container.left:has(.experience-entry)::after,
-    .timeline-container.right:has(.experience-entry)::after,
-    .timeline-container.left:has(.notable-entry)::after,
-    .timeline-container.right:has(.notable-entry)::after {
-        left: 21px;
+
+    /* Hide timeline dots */
+    .timeline-container:has(.experience-entry)::after,
+    .timeline-container:has(.notable-entry)::after {
+        display: none;
     }
-    
+
+    /* Adjust content margins */
     .timeline-container.left .content,
     .timeline-container.right .content {
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0 0 1rem 0;
         width: 100%;
+        max-width: none;
     }
 
     .references-container {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
     }
 
     .hero {
