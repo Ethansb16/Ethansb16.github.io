@@ -1,6 +1,17 @@
 // Main experience data 
 const experiences = [
     {
+        title: "IT Consultant",
+        company: "SLO County Realty",
+        period: "Feb 2025 - Present",
+        description: "Provide technical support through help desk services, and extract valuable data from MLS systems to help agents make informed business decisions.",
+        highlights: [
+            "Register domains, set up email services, manage DNS settings, and ensure timely renewals",
+            "Provide technical troubleshooting, resolve IT issues, offer training, and deliver remote/on-site support",
+            "Extract insights from MLS systems, create automated reports, and develop dashboards to visualize sales metrics"
+        ],
+    },
+    {
         title: "Pro Shop Manager",
         company: "Cal Poly Associated Students, Inc",
         period: "June 2024 - Present",
