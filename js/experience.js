@@ -44,8 +44,8 @@ const experiences = [
     {
         title: "IT Consultant",
         company: "SLO County Realty",
-        period: "Feb 2025 - Present",
-        description: "Provide technical support through help desk services, and extract valuable data from MLS systems to help agents make informed business decisions.",
+        period: "Feb 2025 - Jun 2025",
+        description: "Provided technical support through help desk services, and extracted valuable data from MLS systems to help agents make informed business decisions.",
         highlights: [
             "Register domains, set up email services, manage DNS settings, and ensure timely renewals",
             "Provide technical troubleshooting, resolve IT issues, offer training, and deliver remote/on-site support",
