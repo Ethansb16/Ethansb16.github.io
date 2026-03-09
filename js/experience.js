@@ -60,6 +60,7 @@ const experiences = [
         highlights: [
             "Manage/lead a team of 19 student employees",
             "Oversee scheduling, onboarding, and staff development",
+            "Automated Innusoft Fusion's email system to notify participants with outstanding rental equipment — saving staff 10 minutes of manual follow-up per day",
             "Implement workflow optimizations",
             "Maintain high service standards",
             "Foster productive and customer-focused environment"
