@@ -50,7 +50,7 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-primary);
+    background-color: #0a0a16;
     color: var(--text-primary);
     line-height: 1.65;
     overflow-x: hidden;
@@ -166,7 +166,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--gradient-hero);
+    background: transparent;
     padding: 0 2rem;
     text-align: center;
 }
@@ -359,7 +359,7 @@ body {
 
 /* ===== PAGE HERO (inner pages) ===== */
 .page-hero {
-    background: var(--gradient-hero);
+    background: transparent;
     padding: calc(var(--nav-height) + 2.5rem) 2rem 2.5rem;
     text-align: center;
     position: relative;
