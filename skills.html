@@ -3,64 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Ethan Bernhardt</title>
+    <title>Skills — Ethan Bernhardt</title>
     <meta name="description" content="Technical Skills and Goals of Ethan Bernhardt">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <div id="scroll-progress"></div>
+
     <!-- Navigation -->
     <nav class="header-nav">
         <div class="nav-container">
+            <a href="index.html" class="nav-logo">EB</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="projects.html">Projects</a>
                 <a href="experience.html">Experience</a>
                 <a href="skills.html">Skills</a>
             </div>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-sun"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Skills & Goals</h1>
-        <p>Technical Proficiencies and Future Aspirations</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Skills &amp; Goals</h1>
+        <p>// Technical Proficiencies &amp; Future Aspirations</p>
     </section>
 
     <!-- Skills Content -->
     <div class="container">
-        <section id="skills">
+
+        <section id="skills" class="reveal">
+            <span class="section-label">Proficiencies</span>
             <h2 class="section-header">Technical Skills</h2>
+            <div class="section-divider"></div>
             <div class="skills-grid">
-                <!-- Skill bars will be populated by JavaScript -->
+                <!-- Populated by skills.js -->
             </div>
         </section>
 
-        <section id="goals" style="margin-top: 3rem;">
+        <section id="goals" class="reveal">
+            <span class="section-label">Roadmap</span>
             <h2 class="section-header">Professional Goals</h2>
-            <div class="project-card">
-                <h3>Short-term Goals</h3>
-                <ul class="goals-list">
-                    <li>Complete Network Security certification</li>
-                    <li>Develop expertise in cloud security platforms</li>
-                    <li>Contribute to open-source security projects</li>
-                </ul>
-            </div>
-            <div class="project-card" style="margin-top: 2rem;">
-                <h3>Long-term Goals</h3>
-                <ul class="goals-list">
-                    <li>Lead cybersecurity initiatives in enterprise environments</li>
-                    <li>Develop innovative security solutions</li>
-                    <li>Mentor upcoming security professionals</li>
-                </ul>
+            <div class="section-divider"></div>
+            <div class="goals-grid">
+                <div class="goals-card">
+                    <h3><i class="fas fa-rocket"></i> Short-term Goals</h3>
+                    <ul class="goals-list">
+                        <li>Complete Network Security certification</li>
+                        <li>Develop expertise in cloud security platforms</li>
+                        <li>Contribute to open-source security projects</li>
+                    </ul>
+                </div>
+                <div class="goals-card">
+                    <h3><i class="fas fa-star"></i> Long-term Goals</h3>
+                    <ul class="goals-list">
+                        <li>Lead cybersecurity initiatives in enterprise environments</li>
+                        <li>Develop innovative security solutions</li>
+                        <li>Mentor upcoming security professionals</li>
+                    </ul>
+                </div>
             </div>
         </section>
+
     </div>
 
-    <script src="/js/theme.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
     <script src="js/skills.js"></script>
 </body>
 </html>

@@ -1,5 +1,39 @@
-// Main experience data 
+// =============================================
+//  EXPERIENCE DATA
+//  NOTE: Update PG&E entries with your actual
+//  titles, dates, and bullet points from LinkedIn
+// =============================================
+
 const experiences = [
+    // ─── PG&E ───────────────────────────────────
+    {
+        title: "IT/Cybersecurity Analyst",          // ← Update with actual title from LinkedIn
+        company: "Pacific Gas and Electric (PG&E)",
+        period: "Sep 2025 - Present",               // ← Update with actual start date
+        description: "Supporting cybersecurity and IT operations for critical energy infrastructure at one of the nation's largest utilities.",
+        highlights: [
+            "Monitor and analyze security events across enterprise IT/OT environments",
+            "Support vulnerability assessment processes and security posture reporting",
+            "Collaborate with cross-functional teams on network security initiatives",
+            "Assist in documentation and implementation of security policies and procedures"
+            // ← Replace with your actual responsibilities from LinkedIn
+        ]
+    },
+    {
+        title: "Cybersecurity Intern",              // ← Update if title differs
+        company: "Pacific Gas and Electric (PG&E)",
+        period: "Jun 2025 - Aug 2025",              // ← Update with actual dates
+        description: "Completed a hands-on cybersecurity internship supporting IT security operations at a Fortune 500 energy company.",
+        highlights: [
+            "Assisted security operations team with threat monitoring and incident triage",
+            "Performed network traffic analysis and security event correlation",
+            "Contributed to security assessment documentation and risk reporting",
+            "Gained exposure to industrial control system (ICS/SCADA) security practices"
+            // ← Replace with your actual responsibilities from LinkedIn
+        ]
+    },
+
+    // ─── Existing experience ─────────────────────
     {
         title: "IT Consultant",
         company: "SLO County Realty",
@@ -9,7 +43,7 @@ const experiences = [
             "Register domains, set up email services, manage DNS settings, and ensure timely renewals",
             "Provide technical troubleshooting, resolve IT issues, offer training, and deliver remote/on-site support",
             "Extract insights from MLS systems, create automated reports, and develop dashboards to visualize sales metrics"
-        ],
+        ]
     },
     {
         title: "Pro Shop Manager",
@@ -23,18 +57,18 @@ const experiences = [
             "Maintain high service standards",
             "Foster productive and customer-focused environment"
         ],
-            references: [  
-        {
-            name: "Nancy Clark",
-            title: "Assistant Director -- Recreational Sports",
-            contact: "Available upon request"
-        },
-        {
-            name: "Keegan Draper",
-            title: "Coordinator -- Recreational Sport",
-            contact: "Available upon request"
-        }
-    ]
+        references: [
+            {
+                name: "Nancy Clark",
+                title: "Assistant Director — Recreational Sports",
+                contact: "Available upon request"
+            },
+            {
+                name: "Keegan Draper",
+                title: "Coordinator — Recreational Sports",
+                contact: "Available upon request"
+            }
+        ]
     },
     {
         title: "Pro Shop Attendant",
@@ -47,13 +81,13 @@ const experiences = [
             "Provided excellent customer service",
             "Trained and guided new team members"
         ],
-                    references: [  
-        {
-            name: "Vincent Wai",
-            title: "Student Manager -- Pro Shop",
-            contact: "Available upon request"
-        }
-    ]
+        references: [
+            {
+                name: "Vincent Wai",
+                title: "Student Manager — Pro Shop",
+                contact: "Available upon request"
+            }
+        ]
     },
     {
         title: "Security Guard",
@@ -66,7 +100,7 @@ const experiences = [
             "Maintained detailed logs of visitors and employees",
             "Responded to emergencies and security issues",
             "Documented incidents and daily activities"
-        ],
+        ]
     },
     {
         title: "Front Desk Attendant",
@@ -79,14 +113,14 @@ const experiences = [
             "Handled customer inquiries and scheduling",
             "Maintained clean and organized facilities",
             "Managed administrative tasks"
-        ], 
-                    references: [  
-        {
-            name: "Roberto Rojas",
-            title: "Operational Manager -- LA Fitness",
-            contact: "Available upon request"
-        }
-    ]
+        ],
+        references: [
+            {
+                name: "Roberto Rojas",
+                title: "Operational Manager — LA Fitness",
+                contact: "Available upon request"
+            }
+        ]
     },
     {
         title: "Crew Member",
@@ -113,44 +147,45 @@ const experiences = [
             "Provided mentorship to athletes",
             "Designed conditioning and improvement plans"
         ],
-            references: [  
-        {
-            name: "Frank Obiesie",
-            title: "Head Coach -- Lakeridge Varsity Lacrosse",
-            contact: "Available upon request"
-        }
-    ]
+        references: [
+            {
+                name: "Frank Obiesie",
+                title: "Head Coach — Lakeridge Varsity Lacrosse",
+                contact: "Available upon request"
+            }
+        ]
     }
-]; 
+];
 
-// Separate notable achievements that can be placed anywhere
+// Notable achievements
 const notableAchievements = [
     {
-        position: 1, // After first job entry
+        position: 3, // After Pro Shop Manager entry
         title: "Leadership Development Program",
         date: "Summer 2024",
         description: "Completed intensive leadership training for student managers, focusing on team management and organizational development."
     },
     {
-        position: 2, // After second job entry
+        position: 4, // After Pro Shop Attendant entry
         title: "Employee of the Month",
         date: "July 2023",
         description: "Recognized for exceptional customer service and team support."
-    },
+    }
 ];
+
+// ─── Timeline builders ───────────────────────
 
 function createTimelineRow(exp, jobSide) {
     const row = document.createElement('div');
     row.className = 'timeline-row';
-    
-    // Create containers for both sides
-    const leftContainer = document.createElement('div');
-    leftContainer.className = 'timeline-container left';
-    
+
+    const leftContainer  = document.createElement('div');
+    leftContainer.className  = 'timeline-container left';
+
     const rightContainer = document.createElement('div');
     rightContainer.className = 'timeline-container right';
-    
-    // Create the job content
+
+    // Job card
     const jobContent = document.createElement('div');
     jobContent.className = 'content experience-entry';
     jobContent.innerHTML = `
@@ -159,105 +194,108 @@ function createTimelineRow(exp, jobSide) {
         <div class="company">${exp.company}</div>
         <div class="description">${exp.description}</div>
         <ul class="highlights">
-            ${exp.highlights.map(highlight => `<li>${highlight}</li>`).join('')}
+            ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
         </ul>
     `;
-    
-    // If there are references, create reference content
+
+    // Dot
+    const dot = document.createElement('div');
+    dot.className = 'timeline-dot';
+
     if (exp.references && exp.references.length > 0) {
-        const referencesContainer = document.createElement('div');
-        referencesContainer.className = 'references-container';
-        
+        const refWrap = document.createElement('div');
+        refWrap.className = 'references-container';
+
         exp.references.forEach(ref => {
-            const refContent = document.createElement('div');
-            refContent.className = 'content reference-entry';
-            refContent.innerHTML = `
+            const refCard = document.createElement('div');
+            refCard.className = 'content reference-entry';
+            refCard.innerHTML = `
                 <div class="reference-tag">Reference</div>
                 <div class="reference-name">${ref.name}</div>
                 <div class="reference-title">${ref.title}</div>
                 <div class="reference-contact">${ref.contact}</div>
             `;
-            referencesContainer.appendChild(refContent);
+            refWrap.appendChild(refCard);
         });
-        
-        // Place job and references on opposite sides
+
         if (jobSide === 'left') {
             leftContainer.appendChild(jobContent);
-            rightContainer.appendChild(referencesContainer);
+            leftContainer.appendChild(dot);
+            rightContainer.appendChild(refWrap);
         } else {
             rightContainer.appendChild(jobContent);
-            leftContainer.appendChild(referencesContainer);
+            rightContainer.appendChild(dot);
+            leftContainer.appendChild(refWrap);
         }
     } else {
-        // If no references, just place the job content
         if (jobSide === 'left') {
             leftContainer.appendChild(jobContent);
+            leftContainer.appendChild(dot);
         } else {
             rightContainer.appendChild(jobContent);
+            rightContainer.appendChild(dot);
         }
     }
-    
+
     row.appendChild(leftContainer);
     row.appendChild(rightContainer);
     return row;
 }
 
-// Helper function to create notable achievement entries
 function createNotableEntry(notable, side) {
     const row = document.createElement('div');
     row.className = 'timeline-row';
-    
-    const leftContainer = document.createElement('div');
-    leftContainer.className = 'timeline-container left';
-    
-    const rightContainer = document.createElement('div');
-    rightContainer.className = 'timeline-container right';
-    
-    const content = document.createElement('div');
-    content.className = 'content notable-entry';
-    content.innerHTML = `
+
+    const left  = document.createElement('div');
+    left.className  = 'timeline-container left';
+
+    const right = document.createElement('div');
+    right.className = 'timeline-container right';
+
+    const card = document.createElement('div');
+    card.className = 'content notable-entry';
+    card.innerHTML = `
         <div class="notable-tag">Notable Achievement</div>
         <div class="notable-title">${notable.title}</div>
         <div class="notable-date">${notable.date}</div>
         <div class="notable-description">${notable.description}</div>
     `;
-    
+
+    const dot = document.createElement('div');
+    dot.className = 'timeline-dot';
+
     if (side === 'left') {
-        leftContainer.appendChild(content);
+        left.appendChild(card);
+        left.appendChild(dot);
     } else {
-        rightContainer.appendChild(content);
+        right.appendChild(card);
+        right.appendChild(dot);
     }
-    
-    row.appendChild(leftContainer);
-    row.appendChild(rightContainer);
+
+    row.appendChild(left);
+    row.appendChild(right);
     return row;
 }
 
-// Main function to create timeline entries
 function createTimelineEntries() {
     const timeline = document.getElementById('timeline');
-    let currentSide = 'left';
-    let achievementIndex = 0;
-    
-    experiences.forEach((exp, index) => {
-        // Create job entry with its reference (if any) as a single row
-        const timelineRow = createTimelineRow(exp, currentSide);
-        timeline.appendChild(timelineRow);
-        
-        // Add any notable achievements that should appear after this job
-        while (achievementIndex < notableAchievements.length && 
-               notableAchievements[achievementIndex].position === index + 1) {
-            const achievement = notableAchievements[achievementIndex];
-            const achievementContainer = createNotableEntry(achievement, 
-                currentSide === 'left' ? 'right' : 'left');
-            timeline.appendChild(achievementContainer);
-            achievementIndex++;
+    if (!timeline) return;
+
+    let side = 'left';
+    let achIdx = 0;
+
+    experiences.forEach((exp, i) => {
+        timeline.appendChild(createTimelineRow(exp, side));
+
+        while (achIdx < notableAchievements.length &&
+               notableAchievements[achIdx].position === i + 1) {
+            const ach = notableAchievements[achIdx];
+            timeline.appendChild(createNotableEntry(ach, side === 'left' ? 'right' : 'left'));
+            achIdx++;
         }
-        
-        // Switch sides for next entry
-        currentSide = currentSide === 'left' ? 'right' : 'left';
+
+        side = side === 'left' ? 'right' : 'left';
     });
 }
 
-// Initialize timeline when DOM is loaded
 document.addEventListener('DOMContentLoaded', createTimelineEntries);

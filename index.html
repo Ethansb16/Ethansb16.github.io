@@ -1,106 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan Bernhardt - Computer Science Portfolio</title>
-    <meta name="description" content="Computer Science Student & Network Security Specialist">
+    <title>Ethan Bernhardt — CS & Network Security</title>
+    <meta name="description" content="Computer Science Student & Network Security Specialist at Cal Poly SLO">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        .hero {
-            position: relative;
-        }
-        
-        .corner-logo {
-            position: absolute;
-            bottom: 20px;
-            width: auto;
-        }
-        
-        .corner-logo.left {
-            height: 60px;
-        }
-        
-        .corner-logo.right {
-            height: 132px; 
-        }
-        
-        .corner-logo.left {
-            left: 20px;
-        }
-        
-        .corner-logo.right {
-            right: 20px;
-        }
-             /* Hide logos on mobile */
-        @media screen and (max-width: 600px) {
-            .corner-logo {
-                display: none;
-            }
-        }
-    </style>
-</head> 
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
+
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress"></div>
+
     <!-- Navigation -->
     <nav class="header-nav">
         <div class="nav-container">
+            <a href="index.html" class="nav-logo">EB</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="projects.html">Projects</a>
                 <a href="experience.html">Experience</a>
                 <a href="skills.html">Skills</a>
             </div>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-sun"></i>
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="profilePicture.jpg" alt="Ethan Bernhardt" class="profile-img">
-        <h1>Ethan Bernhardt</h1>
-        <p>Computer Science Student & Network Security Specialist</p>
-        <img src="ASI.png" alt="ASI Logo" class="corner-logo left">
-        <img src="calpoly.png" alt="Cal Poly Logo" class="corner-logo right">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                CS &amp; Network Security
+            </div>
+            <img src="profilePicture.jpg" alt="Ethan Bernhardt" class="profile-img">
+            <h1>Ethan Bernhardt</h1>
+            <p class="hero-subtitle">
+                <span id="typewriter"></span><span class="cursor"></span>
+            </p>
+            <div class="hero-actions">
+                <a href="experience.html" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> View Experience
+                </a>
+                <a href="mailto:ethanbernh@gmail.com" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+            <div class="hero-logos">
+                <img src="calpoly.png" alt="Cal Poly SLO">
+                <img src="ASI.png" alt="ASI">
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
     <!-- Main Content -->
     <div class="container">
+
         <!-- About Section -->
-        <section id="about">
-            <h2 class="section-header">About Me</h2>
-            <p>Passionate, versatile, and ambitious student aiming to utilize my 
-             technical skills and leadership experience to excel in the field of computer science and information technology. 
-             Currently pursuing a B.S. in Computer Science with a Network Security Concentration at California 
-             Polytechnic State University, San Luis Obispo.</p>
+        <section id="about" class="reveal">
+            <span class="section-label">About</span>
+            <h2 class="section-header">Who I Am</h2>
+            <div class="section-divider"></div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Passionate, versatile, and ambitious student aiming to utilize my
+                    technical skills and leadership experience to excel in the field of
+                    computer science and information technology.</p>
+                    <br>
+                    <p>Currently pursuing a B.S. in Computer Science with a
+                    <strong style="color: var(--accent-cyan);">Network Security Concentration</strong>
+                    at California Polytechnic State University, San Luis Obispo — while gaining
+                    hands-on industry experience in cybersecurity and IT.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Projects Built</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Tech Skills</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">SLO</div>
+                        <div class="stat-label">Cal Poly</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-header">Contact</h2>
+        <section id="contact" class="reveal">
+            <span class="section-label">Connect</span>
+            <h2 class="section-header">Get In Touch</h2>
+            <div class="section-divider"></div>
             <div class="contact-grid">
-                <div class="contact-item">
+                <a href="mailto:ethanbernh@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:ethanbernh@gmail.com">ethanbernh@gmail.com</a>
-                </div>
-                <div class="contact-item">
+                    <span>ethanbernh@gmail.com</span>
+                </a>
+                <a href="https://github.com/Ethansb16" target="_blank" rel="noopener" class="contact-item">
                     <i class="fab fa-github"></i>
-                    <a href="https://github.com/Ethansb16">GitHub</a>
-                </div>
-                <div class="contact-item">
+                    <span>github.com/Ethansb16</span>
+                </a>
+                <a href="https://www.linkedin.com/in/ethan-bernhardt-705015256/" target="_blank" rel="noopener" class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/ethan-bernhardt-705015256/">LinkedIn</a>
-                </div>
+                    <span>LinkedIn Profile</span>
+                </a>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>San Luis Obispo, CA</span>
                 </div>
             </div>
         </section>
+
     </div>
 
-<script src="/js/theme.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
