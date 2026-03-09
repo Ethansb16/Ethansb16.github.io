@@ -175,19 +175,3 @@
     setTimeout(tick, 600);
 })();
 
-// === SKILL BAR ANIMATION ===
-(function initSkillBars() {
-    const fills = document.querySelectorAll('.skill-fill[data-width]');
-    if (!fills.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.width = entry.target.dataset.width + '%';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    fills.forEach(el => observer.observe(el));
-})();

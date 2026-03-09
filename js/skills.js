@@ -1,33 +1,41 @@
-// Skills data
-const skills = [
-    { name: "Python",       level: 80 },
-    { name: "Java",         level: 65 },
-    { name: "SQL",          level: 80 },
-    { name: "C",            level: 65 },
-    { name: "React",        level: 60 },
-    { name: "TypeScript",   level: 60 },
-    { name: "Prisma",       level: 85 },
-    { name: "RISC-V",       level: 70 },
-    { name: "Racket",       level: 80 },
-    { name: "Linux",        level: 70 },
-    { name: "SIEM",         level: 50 }
+// Skills — category-based display
+const skillCategories = [
+    {
+        icon: 'fa-code',
+        label: 'Languages',
+        skills: ['Python', 'Java', 'C', 'SQL', 'TypeScript', 'Racket', 'RISC-V Assembly']
+    },
+    {
+        icon: 'fa-layer-group',
+        label: 'Frameworks & Tools',
+        skills: ['React', 'Next.js', 'Prisma', 'MySQL', 'Node.js', 'Git']
+    },
+    {
+        icon: 'fa-shield-halved',
+        label: 'Cybersecurity',
+        skills: ['SIEM', 'SCADA / ICS', 'Network Security', 'Cryptography', 'Wireless Security', 'Incident Response', 'Vulnerability Assessment']
+    },
+    {
+        icon: 'fa-server',
+        label: 'Systems & Infrastructure',
+        skills: ['Linux', 'TCP / IP', 'DNS', 'Networking', 'Critical Infrastructure']
+    }
 ];
 
-// Render skill bars — width animated via IntersectionObserver in animations.js
-const skillsGrid = document.querySelector('.skills-grid');
-if (skillsGrid) {
-    skills.forEach(skill => {
-        const bar = document.createElement('div');
-        bar.className = 'skill-bar';
-        bar.innerHTML = `
-            <div>
-                <span>${skill.name}</span>
-                <span>${skill.level}%</span>
+const container = document.querySelector('.skill-categories');
+if (container) {
+    skillCategories.forEach(cat => {
+        const card = document.createElement('div');
+        card.className = 'skill-category';
+        card.innerHTML = `
+            <div class="skill-category-header">
+                <i class="fas ${cat.icon}"></i>
+                <span>${cat.label}</span>
             </div>
-            <div class="skill-progress">
-                <div class="skill-fill" data-width="${skill.level}"></div>
+            <div class="skill-pills">
+                ${cat.skills.map(s => `<span class="skill-pill">${s}</span>`).join('')}
             </div>
         `;
-        skillsGrid.appendChild(bar);
+        container.appendChild(card);
     });
 }

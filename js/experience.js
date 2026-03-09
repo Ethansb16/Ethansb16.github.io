@@ -7,29 +7,36 @@
 const experiences = [
     // ─── PG&E ───────────────────────────────────
     {
-        title: "IT/Cybersecurity Analyst",          // ← Update with actual title from LinkedIn
-        company: "Pacific Gas and Electric (PG&E)",
-        period: "Sep 2025 - Present",               // ← Update with actual start date
-        description: "Supporting cybersecurity and IT operations for critical energy infrastructure at one of the nation's largest utilities.",
+        title: "Cyber Security Technical Analyst",
+        company: "Pacific Gas and Electric (PG&E) — Diablo Canyon Nuclear Power Plant",
+        period: "Sep 2025 - Present",
+        description: "Advanced cybersecurity operations protecting critical nuclear infrastructure at Diablo Canyon, serving 3+ million California customers.",
         highlights: [
-            "Monitor and analyze security events across enterprise IT/OT environments",
-            "Support vulnerability assessment processes and security posture reporting",
-            "Collaborate with cross-functional teams on network security initiatives",
-            "Assist in documentation and implementation of security policies and procedures"
-            // ← Replace with your actual responsibilities from LinkedIn
+            "SIEM Administration & Monitoring — Advanced threat detection and security event analysis protecting critical nuclear infrastructure",
+            "Lab Development — Designing and implementing specialized testing environments for cybersecurity drills, incident response simulations, and vulnerability assessments",
+            "Wireless Security Leadership — Leading plant-wide expansion of rogue wireless scanning program to detect malicious access points and unauthorized connections in air-gapped environments",
+            "Critical Infrastructure Security — Specialized experience securing SCADA networks, industrial control systems, and digital assets in highly regulated nuclear facilities"
         ]
     },
     {
-        title: "Cybersecurity Intern",              // ← Update if title differs
-        company: "Pacific Gas and Electric (PG&E)",
-        period: "Jun 2025 - Aug 2025",              // ← Update with actual dates
-        description: "Completed a hands-on cybersecurity internship supporting IT security operations at a Fortune 500 energy company.",
+        title: "Generation Cyber Security Intern",
+        company: "Pacific Gas and Electric (PG&E) — Diablo Canyon Nuclear Power Plant",
+        period: "Jun 2025 - Sep 2025",
+        description: "Hands-on cybersecurity internship securing critical nuclear infrastructure at Diablo Canyon Nuclear Power Plant in Avila Beach, CA.",
         highlights: [
-            "Assisted security operations team with threat monitoring and incident triage",
-            "Performed network traffic analysis and security event correlation",
-            "Contributed to security assessment documentation and risk reporting",
-            "Gained exposure to industrial control system (ICS/SCADA) security practices"
-            // ← Replace with your actual responsibilities from LinkedIn
+            "Led expansion of the rogue wireless scanning program to detect malicious access points and unauthorized connections in air-gapped systems",
+            "Monitored and analyzed security events using SIEM tools to protect critical nuclear infrastructure",
+            "Managed, hardened, and audited critical portable media and mobile devices required for plant operations",
+            "Contributed to security risk assessments and developed security awareness training materials for 1,500+ plant personnel",
+            "Maintained security policies and procedures in accordance with nuclear regulatory requirements and industry best practices",
+            "Participated in cross-functional teams to implement security controls for digital assets in a highly regulated nuclear environment"
+        ],
+        references: [
+            {
+                name: "Dennis Rivers",
+                title: "Cyber Security Supervisor — PG&E",
+                contact: "Available upon request"
+            }
         ]
     },
 
