@@ -158,7 +158,7 @@
 
     const startTime = Date.now();
     function render() {
-        const t = (Date.now() - startTime) / 1000;
+        const t = (Date.now() - startTime) / 1000 * 0.3;
         gl.useProgram(program);
         gl.uniform2f(resLoc, canvas.width, canvas.height);
         gl.uniform1f(timeLoc, t);
