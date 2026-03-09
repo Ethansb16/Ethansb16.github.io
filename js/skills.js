@@ -11,7 +11,7 @@ const skillCategories = [
         skills: ['React', 'Next.js', 'Prisma', 'MySQL', 'Node.js', 'Git']
     },
     {
-        icon: 'fa-shield-halved',
+        icon: 'fa-shield',
         label: 'Cybersecurity',
         skills: ['SIEM', 'SCADA / ICS', 'Network Security', 'Cryptography', 'Wireless Security', 'Incident Response', 'Vulnerability Assessment']
     },
