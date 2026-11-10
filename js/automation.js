@@ -1,4 +1,4 @@
-// Automation projects data & renderer
+// Automation data (content only — rendered by js/animations.js)
 
 const automations = [
     {
@@ -16,11 +16,11 @@ const automations = [
         ],
         technologies: ['Python', 'NinjaTrader', 'TradingView', 'Webhooks', 'ngrok', 'REST API', 'Algo Trading'],
         pipeline: [
-            { icon: 'fa-chart-bar', label: 'TradingView' },
-            { icon: 'fa-bolt', label: 'Webhook Alert' },
-            { icon: 'fa-network-wired', label: 'ngrok Tunnel' },
-            { icon: 'fa-python', label: 'Python Bot' },
-            { icon: 'fa-exchange-alt', label: 'NinjaTrader' }
+            { icon: 'fas fa-chart-bar', label: 'TradingView' },
+            { icon: 'fas fa-bolt', label: 'Webhook Alert' },
+            { icon: 'fas fa-network-wired', label: 'ngrok Tunnel' },
+            { icon: 'fab fa-python', label: 'Python Bot' },
+            { icon: 'fas fa-exchange-alt', label: 'NinjaTrader' }
         ]
     },
     {
@@ -40,61 +40,3 @@ const automations = [
         stat: { value: '10 min/day', label: 'Saved per shift' }
     }
 ];
-
-function buildPipeline(steps) {
-    return `
-        <div class="automation-pipeline">
-            ${steps.map((step, i) => `
-                <div class="pipeline-step">
-                    <div class="pipeline-icon"><i class="fas ${step.icon}"></i></div>
-                    <div class="pipeline-label">${step.label}</div>
-                </div>
-                ${i < steps.length - 1 ? '<div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>' : ''}
-            `).join('')}
-        </div>
-    `;
-}
-
-function buildAutomationCard(auto) {
-    const pipelineHTML = auto.pipeline ? buildPipeline(auto.pipeline) : '';
-    const statHTML = auto.stat ? `
-        <div class="automation-stat">
-            <div class="automation-stat-value">${auto.stat.value}</div>
-            <div class="automation-stat-label">${auto.stat.label}</div>
-        </div>
-    ` : '';
-
-    return `
-        <div class="automation-card" id="${auto.id}">
-            <div class="automation-card-header">
-                <div class="automation-icon-wrap">
-                    <i class="fas ${auto.icon}"></i>
-                </div>
-                <div>
-                    <span class="automation-label">${auto.label}</span>
-                    <h3 class="automation-title">${auto.title}</h3>
-                </div>
-            </div>
-
-            <p class="automation-description">${auto.description}</p>
-
-            ${pipelineHTML}
-
-            <ul class="automation-details">
-                ${auto.details.map(d => `<li><i class="fas fa-terminal"></i><span>${d}</span></li>`).join('')}
-            </ul>
-
-            ${statHTML}
-
-            <div class="tech-tags">
-                ${auto.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
-            </div>
-        </div>
-    `;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('automation-container');
-    if (!container) return;
-    container.innerHTML = automations.map(buildAutomationCard).join('');
-});

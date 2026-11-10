@@ -1,4 +1,4 @@
-// Skills — category-based display
+// Skills data (content only — rendered by js/animations.js)
 const skillCategories = [
     {
         icon: 'fa-code',
@@ -21,21 +21,3 @@ const skillCategories = [
         skills: ['Linux', 'TCP / IP', 'DNS', 'Networking', 'Critical Infrastructure']
     }
 ];
-
-const container = document.querySelector('.skill-categories');
-if (container) {
-    skillCategories.forEach(cat => {
-        const card = document.createElement('div');
-        card.className = 'skill-category';
-        card.innerHTML = `
-            <div class="skill-category-header">
-                <i class="fas ${cat.icon}"></i>
-                <span>${cat.label}</span>
-            </div>
-            <div class="skill-pills">
-                ${cat.skills.map(s => `<span class="skill-pill">${s}</span>`).join('')}
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}

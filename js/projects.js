@@ -1,5 +1,17 @@
-// Populate Projects
+// Projects data (content only — rendered by js/animations.js)
 const projects = [
+    {
+        title: "Offline RAG-Connected LLM",
+        featured: true,
+        description: "Created an offline, RAG-connected LLM to fetch sensitive documents and leverage AI tools without the need for the cloud — allowing us to ask an IBM model questions about our documentation.",
+        technologies: ["RAG", "LLM", "IBM Model", "Offline"],
+        pipeline: [
+            { icon: "fas fa-circle-question", label: "Question" },
+            { icon: "fas fa-folder-open", label: "Sensitive documents" },
+            { icon: "fas fa-microchip", label: "IBM model" },
+            { icon: "fas fa-comment-dots", label: "Answer" }
+        ]
+    },
     {
         title: "TCP Server Construction",
         description: "Built a multithreaded TCP server to handle HTTP requests and execute cgi-bin operations. Implemented robust error handling and optimized for performance on a local server.",
@@ -57,56 +69,3 @@ const projects = [
         ]
     }
 ];
-const projectsGrid = document.querySelector('.projects-grid');
-
-projects.forEach(project => {
-    const projectCard = document.createElement('div');
-    projectCard.className = project.title === "Security Projects Collection" 
-        ? 'project-card security-collection'
-        : 'project-card';
-    
-    if (project.title === "Security Projects Collection") {
-        // Special layout for security projects
-        projectCard.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="tech-tags">
-                ${project.technologies.map(tech => 
-                    `<span class="tech-tag">${tech}</span>`
-                ).join('')}
-            </div>
-            <a href="${project.link}" class="project-link" target="_blank">
-                <i class="fab fa-github"></i> View Collection on GitHub
-            </a>
-            <div class="sub-projects">
-                ${project.subProjects.map(subProject => `
-                    <div class="sub-project">
-                        <h4>${subProject.title}</h4>
-                        <p>${subProject.description}</p>
-                        <div class="tech-tags">
-                            ${subProject.technologies.map(tech => 
-                                `<span class="tech-tag">${tech}</span>`
-                            ).join('')}
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    } else {
-        // Regular project card layout
-        projectCard.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="tech-tags">
-                ${project.technologies.map(tech => 
-                    `<span class="tech-tag">${tech}</span>`
-                ).join('')}
-            </div>
-            <a href="${project.link}" class="project-link" target="_blank">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-        `;
-    }
-    
-    projectsGrid.appendChild(projectCard);
-});

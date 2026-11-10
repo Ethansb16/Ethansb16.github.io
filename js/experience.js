@@ -1,13 +1,14 @@
 // =============================================
-//  EXPERIENCE DATA
-//  NOTE: Update PG&E entries with your actual
-//  titles, dates, and bullet points from LinkedIn
+//  EXPERIENCE DATA (content only — rendered by js/animations.js)
+//  track: "cyber" roles open by default and show in the
+//  "Cyber and IT" filter; everything else is "other".
 // =============================================
 
 const experiences = [
     // ─── PG&E ───────────────────────────────────
     {
         title: "Cyber Security Technical Analyst",
+        track: "cyber",
         company: "Pacific Gas and Electric (PG&E) — Diablo Canyon Nuclear Power Plant",
         period: "Sep 2025 - Present",
         description: "Advanced cybersecurity operations protecting critical nuclear infrastructure at Diablo Canyon, serving 3+ million California customers.",
@@ -20,6 +21,7 @@ const experiences = [
     },
     {
         title: "Generation Cyber Security Intern",
+        track: "cyber",
         company: "Pacific Gas and Electric (PG&E) — Diablo Canyon Nuclear Power Plant",
         period: "Jun 2025 - Sep 2025",
         description: "Hands-on cybersecurity internship securing critical nuclear infrastructure at Diablo Canyon Nuclear Power Plant in Avila Beach, CA.",
@@ -43,6 +45,7 @@ const experiences = [
     // ─── Existing experience ─────────────────────
     {
         title: "IT Consultant",
+        track: "cyber",
         company: "SLO County Realty",
         period: "Feb 2025 - Jun 2025",
         description: "Provided technical support through help desk services, and extracted valuable data from MLS systems to help agents make informed business decisions.",
@@ -55,15 +58,15 @@ const experiences = [
     {
         title: "Pro Shop Manager",
         company: "Cal Poly Associated Students, Inc",
-        period: "June 2024 - Present",
-        description: "Lead a team of 19 student employees in daily operations and service delivery.",
+        period: "June 2024 - June 2026",
+        description: "Led a team of 19 student employees in daily operations and service delivery.",
         highlights: [
-            "Manage/lead a team of 19 student employees",
-            "Oversee scheduling, onboarding, and staff development",
+            "Managed/led a team of 19 student employees",
+            "Oversaw scheduling, onboarding, and staff development",
             "Automated Innusoft Fusion's email system to notify participants with outstanding rental equipment — saving staff 10 minutes of manual follow-up per day",
-            "Implement workflow optimizations",
-            "Maintain high service standards",
-            "Foster productive and customer-focused environment"
+            "Implemented workflow optimizations",
+            "Maintained high service standards",
+            "Fostered productive and customer-focused environment"
         ],
         references: [
             {
@@ -168,142 +171,15 @@ const experiences = [
 // Notable achievements
 const notableAchievements = [
     {
-        position: 3, // After Pro Shop Manager entry
+        role: "Pro Shop Manager",
         title: "Leadership Development Program",
         date: "Summer 2024",
         description: "Completed intensive leadership training for student managers, focusing on team management and organizational development."
     },
     {
-        position: 4, // After Pro Shop Attendant entry
+        role: "Pro Shop Attendant",
         title: "Employee of the Month",
         date: "July 2023",
         description: "Recognized for exceptional customer service and team support."
     }
 ];
-
-// ─── Timeline builders ───────────────────────
-
-function createTimelineRow(exp, jobSide) {
-    const row = document.createElement('div');
-    row.className = 'timeline-row';
-
-    const leftContainer  = document.createElement('div');
-    leftContainer.className  = 'timeline-container left';
-
-    const rightContainer = document.createElement('div');
-    rightContainer.className = 'timeline-container right';
-
-    // Job card
-    const jobContent = document.createElement('div');
-    jobContent.className = 'content experience-entry';
-    jobContent.innerHTML = `
-        <div class="date">${exp.period}</div>
-        <div class="title">${exp.title}</div>
-        <div class="company">${exp.company}</div>
-        <div class="description">${exp.description}</div>
-        <ul class="highlights">
-            ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
-        </ul>
-    `;
-
-    // Dot
-    const dot = document.createElement('div');
-    dot.className = 'timeline-dot';
-
-    if (exp.references && exp.references.length > 0) {
-        const refWrap = document.createElement('div');
-        refWrap.className = 'references-container';
-
-        exp.references.forEach(ref => {
-            const refCard = document.createElement('div');
-            refCard.className = 'content reference-entry';
-            refCard.innerHTML = `
-                <div class="reference-tag">Reference</div>
-                <div class="reference-name">${ref.name}</div>
-                <div class="reference-title">${ref.title}</div>
-                <div class="reference-contact">${ref.contact}</div>
-            `;
-            refWrap.appendChild(refCard);
-        });
-
-        if (jobSide === 'left') {
-            leftContainer.appendChild(jobContent);
-            leftContainer.appendChild(dot);
-            rightContainer.appendChild(refWrap);
-        } else {
-            rightContainer.appendChild(jobContent);
-            rightContainer.appendChild(dot);
-            leftContainer.appendChild(refWrap);
-        }
-    } else {
-        if (jobSide === 'left') {
-            leftContainer.appendChild(jobContent);
-            leftContainer.appendChild(dot);
-        } else {
-            rightContainer.appendChild(jobContent);
-            rightContainer.appendChild(dot);
-        }
-    }
-
-    row.appendChild(leftContainer);
-    row.appendChild(rightContainer);
-    return row;
-}
-
-function createNotableEntry(notable, side) {
-    const row = document.createElement('div');
-    row.className = 'timeline-row';
-
-    const left  = document.createElement('div');
-    left.className  = 'timeline-container left';
-
-    const right = document.createElement('div');
-    right.className = 'timeline-container right';
-
-    const card = document.createElement('div');
-    card.className = 'content notable-entry';
-    card.innerHTML = `
-        <div class="notable-tag">Notable Achievement</div>
-        <div class="notable-title">${notable.title}</div>
-        <div class="notable-date">${notable.date}</div>
-        <div class="notable-description">${notable.description}</div>
-    `;
-
-    const dot = document.createElement('div');
-    dot.className = 'timeline-dot';
-
-    if (side === 'left') {
-        left.appendChild(card);
-        left.appendChild(dot);
-    } else {
-        right.appendChild(card);
-        right.appendChild(dot);
-    }
-
-    row.appendChild(left);
-    row.appendChild(right);
-    return row;
-}
-
-function createTimelineEntries() {
-    const timeline = document.getElementById('timeline');
-    if (!timeline) return;
-
-    let side = 'left';
-    let achIdx = 0;
-
-    experiences.forEach((exp, i) => {
-        timeline.appendChild(createTimelineRow(exp, side));
-
-        while (achIdx < notableAchievements.length &&
-               notableAchievements[achIdx].position === i + 1) {
-            const ach = notableAchievements[achIdx];
-            timeline.appendChild(createNotableEntry(ach, side === 'left' ? 'right' : 'left'));
-            achIdx++;
-        }
-
-        side = side === 'left' ? 'right' : 'left';
-    });
-}
-
-document.addEventListener('DOMContentLoaded', createTimelineEntries);
