@@ -32,13 +32,9 @@
     const stamp = () => { const d = new Date(); return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; };
     if (clock) { clock.textContent = stamp(); setInterval(() => { clock.textContent = stamp(); }, 1000); }
 
-    const bar = $('#scroll-progress');
     const railFill = $('#rail-fill');
     const timeline = $('#timeline');
     function onScroll() {
-        const de = document.documentElement;
-        const total = de.scrollHeight - de.clientHeight;
-        if (bar) bar.style.width = (total > 0 ? (de.scrollTop / total) * 100 : 0) + '%';
         if (timeline && railFill) {
             const r = timeline.getBoundingClientRect();
             const mark = window.innerHeight * 0.6;
